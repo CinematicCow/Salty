@@ -1,0 +1,4 @@
+event.getChannel().getName().equalsIgnoreCase("delux-generator")
+event.getChannel().getName().equalsIgnoreCase("premium-generator")
+event.getChannel().getName().equalsIgnoreCase("free-generator")
+event.getChannel().getName().equalsIgnoreCase("delux-generator")
