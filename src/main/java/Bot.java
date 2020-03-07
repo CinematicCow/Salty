@@ -1,5 +1,7 @@
+import Events.BasicEvents;
 import Events.FileEvent;
 import Events.HelpEvents;
+import Events.StockEvent;
 import Extensions.Tester;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
@@ -14,14 +16,14 @@ public class Bot {
 
     //    public static String prefix="!";
     public static void main(String[] args) throws Exception {
-        JDA jda = new JDABuilder(AccountType.BOT).setToken("Enter Token here").build();
+        JDA jda = new JDABuilder(AccountType.BOT).setToken("enter token here").build();
 
         CommandClientBuilder clientBuilder = new CommandClientBuilder();
-        clientBuilder.setActivity(Activity.listening("for your next command"));
+        clientBuilder.setActivity(Activity.listening("your next command"));
         clientBuilder.setShutdownAutomatically(true);
 
         clientBuilder.setPrefix("!");
-        clientBuilder.setOwnerId("Enter bot Id here");
+        clientBuilder.setOwnerId("Enter bot id here");
         clientBuilder.addCommand(new Tester());
         clientBuilder.setHelpWord("helpme");
         CommandClient client = clientBuilder.build();
@@ -29,9 +31,9 @@ public class Bot {
         //   jda.addEventListener(new BotReply());
         jda.addEventListener(new FileEvent());
         jda.addEventListener(client);
-        //jda.addEventListener(new BasicEvents());
+        jda.addEventListener(new BasicEvents());
         jda.addEventListener(new HelpEvents());
-        //jda.addEventListener(new StockEvent());
+        jda.addEventListener(new StockEvent());
         //      jda.addEventListener(new WelcomeEvent());
     }
 

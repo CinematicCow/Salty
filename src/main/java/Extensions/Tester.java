@@ -16,9 +16,11 @@ public class Tester extends Command {
 
     @Override
     public void execute(CommandEvent event) {
+        String message_id = event.getChannel().getLatestMessageId();
         event.getChannel().sendTyping().delay(2, TimeUnit.SECONDS).completeAfter(1, TimeUnit.SECONDS);
 
         event.getChannel().sendMessage("magic it is!!").delay(3, TimeUnit.SECONDS).flatMap(Message::delete).queue();
+        event.getChannel().purgeMessages();
         //event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendTyping().delay(1,TimeUnit.SECONDS)).queue();
         //event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This message gonna diss.....!").delay(2, TimeUnit.SECONDS)).flatMap(Message::delete).queue();
     }

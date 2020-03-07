@@ -39,8 +39,5 @@ public class BasicEvents extends ListenerAdapter {
 
     }
 
-    public void onUserTyping(UserTypingEvent event) {
-        String name = event.getMember().getUser().getName();
-        event.getChannel().sendMessage("OMFGOD " + name + " types so SLOW!");
-    }
+
 }
