@@ -1,34 +1,46 @@
 package Events;
 
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import com.jagrosh.jdautilities.command.Command;
+import com.jagrosh.jdautilities.command.CommandEvent;
+import net.dv8tion.jda.api.EmbedBuilder;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
-public class StockEvent extends ListenerAdapter {
-    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
-        String[] mesasge = event.getMessage().getContentRaw().split(" ");
-        String msg = event.getMessage().getContentRaw();
-        long GC = 676625827043213312l;
-        String spotify_path = "C:\\Users\\prajw\\Downloads\\text.txt";
-        String minecraft_path = "C:\\Users\\prajw\\Downloads\\100k_User_Pass_Gaming_Targetted_-_16.txt";
-        String netflix_path = "C:\\Users\\prajw\\Downloads\\MINECRAFT_UNCHECKED.txt";
-      /*  File spotify_file = new File(spotify_path);
-        File minecraft_file = new File(minecraft_path);
-        File netflix_file = new File(netflix_path);*/
+public class StockEvent extends Command {
 
+    public StockEvent() {
+        this.name = "stock";
+        this.aliases = new String[]{"Stock,STOCK"};
+        this.help = "returns the stock left ";
+        this.requiredRole = "OWNER";
 
-        if (msg.equalsIgnoreCase("!stock")/* && mesasge[1].equalsIgnoreCase("spotify")*/) {
-            try {
-                event.getChannel().sendMessage("Spotify stock remaning : " + Extensions.StockEvent.stock(spotify_path)).queue();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.out.println(event.getChannel().getName());
+    }
 
+    @Override
+    public void execute(CommandEvent event) {
+        String path1 = "C:\\Users\\prajw\\Downloads\\text.txt";
+        String path2 = "C:\\Users\\prajw\\Downloads\\text1.txt";
+        String path3 = "C:\\Users\\prajw\\Downloads\\text2.txt";
+
+        String spotify = null;
+        String minecraft = null;
+        String origin = null;
+        try {
+            spotify = Integer.toString(Extensions.StockEvent.stock(path1));
+            minecraft = Integer.toString(Extensions.StockEvent.stock(path2));
+            origin = Integer.toString(Extensions.StockEvent.stock(path3));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            EmbedBuilder builder = new EmbedBuilder();
+            builder.addField("Stock remaning", "", false);
+            builder.addBlankField(true);
+            builder.addField("Spotify", spotify, true);
+            builder.addField("Minecraft", minecraft, true);
+            builder.addField("Origin", origin, true);
+
+            event.getChannel().sendMessage(builder.build()).queue();
         }
     }
 }

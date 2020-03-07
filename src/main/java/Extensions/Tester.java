@@ -11,7 +11,8 @@ public class Tester extends Command {
     public Tester() {
         this.name = "magic";
         this.aliases = new String[]{"magictrick,wow"};
-        this.help = "Gives the information about the server";
+        this.help = "does a lame magic trick to entertain your little niece";
+        this.requiredRole = "OWNER";
     }
 
     @Override

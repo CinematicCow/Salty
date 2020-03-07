@@ -8,6 +8,7 @@ import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.ReadyEvent;
 
@@ -16,15 +17,17 @@ public class Bot {
 
     //    public static String prefix="!";
     public static void main(String[] args) throws Exception {
-        JDA jda = new JDABuilder(AccountType.BOT).setToken("enter token here").build();
+        JDA jda = new JDABuilder(AccountType.BOT).setToken("Enter token here").build();
 
         CommandClientBuilder clientBuilder = new CommandClientBuilder();
-        clientBuilder.setActivity(Activity.listening("your next command"));
+        clientBuilder.setStatus(OnlineStatus.IDLE);
+        clientBuilder.setActivity(Activity.playing("Testing Testing"));
         clientBuilder.setShutdownAutomatically(true);
 
         clientBuilder.setPrefix("!");
         clientBuilder.setOwnerId("Enter bot id here");
         clientBuilder.addCommand(new Tester());
+        clientBuilder.addCommand(new StockEvent());
         clientBuilder.setHelpWord("helpme");
         CommandClient client = clientBuilder.build();
 
@@ -33,11 +36,11 @@ public class Bot {
         jda.addEventListener(client);
         jda.addEventListener(new BasicEvents());
         jda.addEventListener(new HelpEvents());
-        jda.addEventListener(new StockEvent());
+
         //      jda.addEventListener(new WelcomeEvent());
     }
 
-    public static void onReady(ReadyEvent event) {
+    public void onReady(ReadyEvent event) {
         System.out.println("bot is ready");
         System.out.println(event.getJDA().getToken());
     }

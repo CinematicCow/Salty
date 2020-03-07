@@ -1,48 +1,31 @@
 package Extensions;
 
-import java.io.*;
-import java.util.Scanner;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
 public class FileDelete {
-    public static void main(String[] args) {
 
-        // String d=" funphenomenal:Time13                                                                                                                ";
-        //  delete(d.trim(),"C:\\Users\\prajw\\Downloads\\100k_User_Pass_Gaming_Targetted_-_16.txt");
-    }
-
-    public static void delete(String removeTerm, String Filepath) {
-        String tempFile = "temp.txt";
-        File oldFile = new File(Filepath);
-        File newFile = new File(tempFile);
-        String has;
+    public static void delete(String fileName) {
         try {
-            FileWriter fw = new FileWriter(tempFile, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw);
+            RandomAccessFile raf = new RandomAccessFile(fileName, "rw");
+            //Initial write position
+            long writePosition = raf.getFilePointer();
+            raf.readLine();
+            // Shift the next lines upwards.
+            long readPosition = raf.getFilePointer();
 
-            Scanner x = new Scanner(new File(Filepath));
-            //  x.useDelimiter("[\n]");
-
-            while (x.hasNext()) {
-                has = x.next();
-
-                if (!has.equals(removeTerm)) {
-                    pw.println(has);
-                }
+            byte[] buff = new byte[1024];
+            int n;
+            while (-1 != (n = raf.read(buff))) {
+                raf.seek(writePosition);
+                raf.write(buff, 0, n);
+                readPosition += n;
+                writePosition += n;
+                raf.seek(readPosition);
             }
-            x.close();
-            pw.flush();
-            pw.close();
-            boolean hasDelete = oldFile.delete();
-
-            File dump = new File(Filepath);
-            boolean has_renamed = newFile.renameTo(dump);
-           /* if(hasDelete && has_renamed){
-                System.out.println("Operation Sucessful !");
-            }*/
-
+            raf.setLength(writePosition);
+            raf.close();
         } catch (IOException e) {
-            System.out.println("error");
             e.printStackTrace();
         }
     }
