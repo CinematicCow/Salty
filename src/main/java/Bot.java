@@ -17,7 +17,7 @@ public class Bot {
 
     //    public static String prefix="!";
     public static void main(String[] args) throws Exception {
-        JDA jda = new JDABuilder(AccountType.BOT).setToken("Enter token here").build();
+        JDA jda = new JDABuilder(AccountType.BOT).setToken("NjgxMDQ3NzU4MzAzNzg5MTM1.XoHzTA.l7EomrfyMzIVSGETarS5DSRp3Ys").build();
 
         CommandClientBuilder clientBuilder = new CommandClientBuilder();
         clientBuilder.setStatus(OnlineStatus.IDLE);
@@ -25,7 +25,7 @@ public class Bot {
         clientBuilder.setShutdownAutomatically(true);
 
         clientBuilder.setPrefix("!");
-        clientBuilder.setOwnerId("Enter bot id here");
+        clientBuilder.setOwnerId("681047758303789135");
         clientBuilder.addCommand(new Tester());
         clientBuilder.addCommand(new StockEvent());
         clientBuilder.setHelpWord("helpme");
