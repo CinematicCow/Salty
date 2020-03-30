@@ -21,9 +21,9 @@ public class FileEvent extends ListenerAdapter {
         EmbedBuilder nord = new EmbedBuilder();
 
         /*All the paths are here*/
-        String SPOTIFY_PATH = "C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Nonworking-acc.txt";
-        String STEAM_PATH = "C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Stezm_acc.txt";
-        String NORD_PATH = "C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Nord-acc.txt";
+        String SPOTIFY_PATH = "Accounts/Nonworking-acc.txt";
+        String STEAM_PATH = "Accounts/Nord-acc.txt";
+        String NORD_PATH = "Accounts/Stezm_acc.txt";
 
         /*All the file objects are here*/
         File Steam = new File(STEAM_PATH);

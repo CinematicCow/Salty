@@ -18,9 +18,9 @@ public class StockEvent extends Command {
 
     @Override
     public void execute(CommandEvent event) {
-        String Spotify = "C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Nonworking-acc.txt";
-        String Steam = "C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Stezm_acc.txt";
-        String Nord = "\"C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Nord-acc.txt\"";
+        String Spotify = "Accounts/Nonworking-acc.txt";
+        String Steam = "Accounts/Stezm_acc.txt";
+        String Nord = "Accounts/Nord-acc.txt";
 
         String spotify = null;
         String nord = null;
