@@ -56,10 +56,10 @@ public class FileEvent extends ListenerAdapter {
             spotify.setColor(Color.RED);
             spotify.addField("Spotify", data_spotify, true);
             spotify.addBlankField(true);
-            //event.getChannel().sendMessage("Account sent on DM " + event.getAuthor().getAsMention()).queue();
-            event.getChannel().sendMessage("Spotify Accounts are out of stock. \nPlease check back later or contact "+event.getGuild().getOwner().getAsMention()).queue();
-                // event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(spotify.build())).queue();
-            //event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("")).queue();
+            event.getChannel().sendMessage("Account sent on DM " + event.getAuthor().getAsMention()).queue();
+           // event.getChannel().sendMessage("Spotify Accounts are out of stock. \nPlease check back later or contact "+event.getGuild().getOwner().getAsMention()).queue();
+                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(spotify.build())).queue();
+            event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This account is not working as these Spotify accounts were added for testing purposes")).queue();
 
             //System.out.println(data);
             ss.close();
