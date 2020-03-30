@@ -12,7 +12,7 @@ public class Tester extends Command {
         this.name = "magic";
         this.aliases = new String[]{"magictrick,wow"};
         this.help = "does a lame magic trick to entertain your little niece";
-        this.requiredRole = "OWNER";
+      //  this.requiredRole = "OWNER";
     }
 
     @Override
