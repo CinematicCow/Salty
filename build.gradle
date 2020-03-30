@@ -5,12 +5,13 @@ plugins {
     /*id "com.energizedwork.heroku-buildpack-runnable-jar" version "1.3"*/
 }
 
-mainClassName = 'Bot.java'
+mainClassName = 'Bot'
 
 version '1.0'
 def jdaVersion = '4.1.1_109'
 
 sourceCompatibility = targetCompatibility = 1.8
+
 
 repositories {
     jcenter()
@@ -26,6 +27,15 @@ dependencies {
 
 }
 
-
+/*task run(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'Bot.java'
+}*/
+/*jar{
+    mainfest{
+        attributes "MainClass": "$mainClassName"
+    }
+}
+*/
 
 compileJava.options.encoding = 'UTF-8'
