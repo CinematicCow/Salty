@@ -17,7 +17,7 @@ repositories {
     maven {
         url 'https://jitpack.io'
     }
- 
+
 }
 
 dependencies {
@@ -26,5 +26,6 @@ dependencies {
 
 }
 
-apply plugin: "com.energizedwork.heroku-buildpack-runnable-jar"
+
+
 compileJava.options.encoding = 'UTF-8'
