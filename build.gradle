@@ -17,15 +17,12 @@ repositories {
     maven {
         url 'https://jitpack.io'
     }
-    maven {
-        url "https://plugins.gradle.org/m2/"
-    }
+ 
 }
 
 dependencies {
     compile 'com.jagrosh:jda-utilities:3.0.2'
     compile "net.dv8tion:JDA:$jdaVersion"
-    classpath "gradle.plugin.com.energizedwork.heroku-buildpack-runnable-jar:heroku-buildpack-runnable-jar-gradle-plugin:1.3"
 
 }
 
