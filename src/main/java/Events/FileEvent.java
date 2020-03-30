@@ -22,8 +22,8 @@ public class FileEvent extends ListenerAdapter {
 
         /*All the paths are here*/
         String SPOTIFY_PATH = "Accounts/Nonworking-acc.txt";
-        String STEAM_PATH = "Accounts/Nord-acc.txt";
-        String NORD_PATH = "Accounts/Stezm_acc.txt";
+        String STEAM_PATH = "Accounts/Stezm_acc.txt";
+        String NORD_PATH = "Accounts/Nord-acc.txt";
 
         /*All the file objects are here*/
         File Steam = new File(STEAM_PATH);
