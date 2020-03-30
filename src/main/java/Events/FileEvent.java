@@ -17,23 +17,31 @@ public class FileEvent extends ListenerAdapter {
 
         /*All the embeded builders objects are here */
         EmbedBuilder spotify = new EmbedBuilder();
-        EmbedBuilder minecraft = new EmbedBuilder();
-        EmbedBuilder origin = new EmbedBuilder();
+        EmbedBuilder steam = new EmbedBuilder();
+        EmbedBuilder nord = new EmbedBuilder();
 
         /*All the paths are here*/
-        String SPOTIFY_PATH = "C:\\Users\\prajw\\Downloads\\text.txt";
-        String MINECRAFT_PATH = "C:\\Users\\prajw\\Downloads\\text1.txt";
-        String ORIGIN_PATH = "C:\\Users\\prajw\\Downloads\\text2.txt";
+        String SPOTIFY_PATH = "C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Nonworking-acc.txt";
+        String STEAM_PATH = "C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Stezm_acc.txt";
+        String NORD_PATH = "C:\\Users\\prajw\\IdeaProjects\\JavaBot\\Accounts\\Nord-acc.txt";
 
         /*All the file objects are here*/
-        File Minecraft = new File(MINECRAFT_PATH);
+        File Steam = new File(STEAM_PATH);
         File Spotify = new File(SPOTIFY_PATH);
-        File Origin = new File(ORIGIN_PATH);
+        File Nord = new File(NORD_PATH);
 
+        /*This gets the message inputed on your channel to a variable*/
         String message = event.getMessage().getContentRaw();
-
+        /***Channel Stuff along with some id's*/
+        String channel_id=event.getChannel().getId().toString();
+        String general_channel_id="676625827043213314";
+        String delux_channel_id="683611441575624751";
+        String preminum_channel_id="683611405932691459";
+        String free_channel_id="683595742836817940";
+        /***For Spotify **/
         if (message.equalsIgnoreCase("!spotify")) {
             Scanner ss = null;
+            if(channel_id.equals(preminum_channel_id)||channel_id.equals(delux_channel_id)){
             try {
                 ss = new Scanner(Spotify);
             } catch (FileNotFoundException e) {
@@ -48,59 +56,76 @@ public class FileEvent extends ListenerAdapter {
             spotify.setColor(Color.RED);
             spotify.addField("Spotify", data_spotify, true);
             spotify.addBlankField(true);
-            event.getChannel().sendMessage("Account sent on DM " + event.getAuthor().getAsMention()).queue();
-            event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(spotify.build())).queue();
+            //event.getChannel().sendMessage("Account sent on DM " + event.getAuthor().getAsMention()).queue();
+            event.getChannel().sendMessage("Spotify Accounts are out of stock. \nPlease check back later or contact "+event.getGuild().getOwner().getAsMention()).queue();
+                // event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(spotify.build())).queue();
+            //event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("")).queue();
 
             //System.out.println(data);
             ss.close();
             // }
             FileDelete.delete(SPOTIFY_PATH);
         }
+            else{
+                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+            }
+        }
 
-            if(message.equalsIgnoreCase("!minecraft")) {
+        /***For Steam **/
+            if(message.equalsIgnoreCase("!steam")) {
                 Scanner sm = null;
-                try {
-                    sm = new Scanner(Minecraft);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                if (channel_id.equals(preminum_channel_id) || channel_id.equals(delux_channel_id)) {
+                    try {
+                        sm = new Scanner(Steam);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    String data_minecraft = sm.nextLine().trim();
+
+                    // if (!event.getAuthor().isBot()) {
+                    steam.setTitle(event.getGuild().getName(), "https://discord.gg/WcDpNQB");
+                    steam.setThumbnail("https://www.pcgamesn.com/wp-content/uploads/2018/07/steam-logo-580x332.jpg");
+                    steam.setColor(Color.CYAN);
+                    steam.addField("STEAM", data_minecraft, true);
+                    steam.addBlankField(true);
+                    event.getChannel().sendMessage("Account sent on DM " + event.getAuthor().getAsMention()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(steam.build())).queue();
+
+                    sm.close();
+                    // }
+                    FileDelete.delete(STEAM_PATH);
+                } else {
+                    event.getChannel().sendMessage("You cannot do that here " + event.getAuthor().getAsMention().toString()).queue();
                 }
-                String data_minecraft = sm.nextLine().trim();
-
-                // if (!event.getAuthor().isBot()) {
-                minecraft.setTitle(event.getGuild().getName(), "https://discord.gg/WcDpNQB");
-                minecraft.setThumbnail("http://minecrafterhelp.weebly.com/uploads/1/2/0/4/12046836/2170468_orig.png?151");
-                minecraft.setColor(Color.green);
-                minecraft.addField("Minecraft", data_minecraft, true);
-                minecraft.addBlankField(true);
-                event.getChannel().sendMessage("Account sent on DM " + event.getAuthor().getAsMention()).queue();
-                event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(minecraft.build())).queue();
-
-                sm.close();
-                // }
-                FileDelete.delete(MINECRAFT_PATH);
             }
-
-            if (message.equalsIgnoreCase("!origin")) {
+             /***For NordVpn **/
+            if (message.equalsIgnoreCase("!nordvpn")) {
                 Scanner sn = null;
-                try {
-                    sn = new Scanner(Origin);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                if(!channel_id.equals(general_channel_id)) {
+
+                        try {
+                            sn = new Scanner(Nord);
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        String data_nord = sn.nextLine().trim();
+
+
+                        nord.setTitle(event.getGuild().getName(), "https://discord.gg/WcDpNQB");
+                        nord.setThumbnail("https://thebestvpn.uk/wp-content/uploads/2015/06/NordVPN-review-1280x600-1024x480.png");
+                        nord.setColor(Color.BLUE);
+                        nord.addField("NORD VPN Account: ", data_nord, true);
+                        nord.addBlankField(true);
+                        event.getChannel().sendMessage("Account sent on DM to " + event.getAuthor().getAsMention()).queue();
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(nord.build())).queue();
+                        sn.close();
+
+                        FileDelete.delete(NORD_PATH);
+                    }
+                else{
+                    event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
                 }
-                String data_origin = sn.nextLine().trim();
-
-
-                origin.setTitle(event.getGuild().getName(), "https://discord.gg/WcDpNQB");
-                origin.setThumbnail("https://2.bp.blogspot.com/-nNysw1fsLH4/Um6YOm2PPNI/AAAAAAAAB68/DIhBsjKVTQE/s1600/origin+logo+www.Battlefield247.Blogspot.com.png");
-                origin.setColor(Color.ORANGE);
-                origin.addField("Origin Account: ", data_origin, true);
-                origin.addBlankField(true);
-                event.getChannel().sendMessage("Account sent on DM to " + event.getAuthor().getAsMention()).queue();
-                event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(origin.build())).queue();
-                sn.close();
-
-                FileDelete.delete(ORIGIN_PATH);
-            }
+                }
 
 
     }
