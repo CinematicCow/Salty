@@ -36,7 +36,7 @@ public class StockEvent extends Command {
             EmbedBuilder builder = new EmbedBuilder();
             builder.addField("Stock remaning", "", false);
             builder.addBlankField(true);
-            builder.addField("Spotify", spotify, true);
+            builder.addField("Spotify", "0", true);
             builder.addField("Steam", steam, true);
             builder.addField("Nord-Vpn", nord, true);
 
