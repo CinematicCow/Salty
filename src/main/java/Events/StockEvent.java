@@ -34,11 +34,11 @@ public class StockEvent extends Command {
             e.printStackTrace();
         } finally {
             EmbedBuilder builder = new EmbedBuilder();
-            builder.addField("Stock remaning", "", false);
-            builder.addBlankField(true);
-            builder.addField("Spotify", spotify, true);
-            builder.addField("Steam", steam, true);
-            builder.addField("Nord-Vpn", nord, true);
+            builder.setTitle("Stock Remaning : ");
+          //  builder.addBlankField(true);
+            builder.addField("**Spotify Accounts** \n```note these Spotify accounts are not working at the moment as they were added for testing purposes. New Accounts will be added soon !```", spotify, false);
+            builder.addField("**Steam Accounts**", steam, false);
+            builder.addField("**Nord-Vpn Accounts**", nord, false);
 
             event.getChannel().sendMessage(builder.build()).queue();
         }
