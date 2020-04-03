@@ -1,7 +1,4 @@
-import Events.BasicEvents;
-import Events.FileEvent;
-import Events.HelpEvents;
-import Events.StockEvent;
+import Events.*;
 import Extensions.Tester;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
@@ -36,6 +33,7 @@ public class Bot {
         jda.addEventListener(client);
         jda.addEventListener(new BasicEvents());
         jda.addEventListener(new HelpEvents());
+        jda.addEventListener(new PingEvent());
 
         //      jda.addEventListener(new WelcomeEvent());
     }
