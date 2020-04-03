@@ -1,5 +1,5 @@
 import Events.*;
-import Extensions.Tester;
+import Extensions.Magic;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import net.dv8tion.jda.api.AccountType;
@@ -23,7 +23,7 @@ public class Bot {
 
         clientBuilder.setPrefix("!");
         clientBuilder.setOwnerId("681047758303789135");
-        clientBuilder.addCommand(new Tester());
+        clientBuilder.addCommand(new Magic());
         clientBuilder.addCommand(new StockEvent());
         clientBuilder.setHelpWord("helpme");
         CommandClient client = clientBuilder.build();

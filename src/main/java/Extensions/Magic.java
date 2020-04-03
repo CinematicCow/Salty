@@ -6,9 +6,9 @@ import net.dv8tion.jda.api.entities.Message;
 
 import java.util.concurrent.TimeUnit;
 
-public class Tester extends Command {
+public class Magic extends Command {
 
-    public Tester() {
+    public Magic() {
         this.name = "magic";
         this.aliases = new String[]{"magictrick,wow"};
         this.help = "does a lame magic trick to entertain your little niece";
