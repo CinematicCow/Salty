@@ -17,7 +17,7 @@ public class Bot {
 
     //    public static String prefix="!";
     public static void main(String[] args) throws Exception {
-        JDA jda = new JDABuilder(AccountType.BOT).setToken("NjgxMDQ3NzU4MzAzNzg5MTM1.XoHzTA.l7EomrfyMzIVSGETarS5DSRp3Ys").build();
+        JDA jda = new JDABuilder(AccountType.BOT).setToken("NjgxMDQ3NzU4MzAzNzg5MTM1.Xod0WA.w4bN7lBdgnhJZW0IF5cOXALZf7Q").build();
 
         CommandClientBuilder clientBuilder = new CommandClientBuilder();
         clientBuilder.setStatus(OnlineStatus.IDLE);
