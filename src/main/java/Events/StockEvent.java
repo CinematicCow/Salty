@@ -3,6 +3,7 @@ package Events;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.User;
 
 import java.io.IOException;
 
@@ -41,6 +42,20 @@ public class StockEvent extends Command {
             builder.addField("**Nord-Vpn Accounts**", nord, false);
 
             event.getChannel().sendMessage(builder.build()).queue();
+
+                if(Integer.parseInt(spotify)<15) {
+                    String finalcount = spotify;
+                    event.getGuild().getOwner().getUser().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This is to remind you that you have to restock Spotify as there are only " + finalcount + " accounts left")).queue();
+                }
+            if(Integer.parseInt(steam)<15) {
+                String finalcount = steam;
+                event.getGuild().getOwner().getUser().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This is to remind you that you have to restock Steam as there are only " + finalcount + " accounts left")).queue();
+            }
+            if(Integer.parseInt(nord)<15) {
+                String finalcount = nord;
+                event.getGuild().getOwner().getUser().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This is to remind you that you have to restock Nord Vpn as there are only " + finalcount + " accounts left")).queue();
+            }
         }
     }
+
 }
