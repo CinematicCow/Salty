@@ -1,19 +1,20 @@
 package Events;
 
+import Extensions.StockExtension;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.User;
 
 import java.io.IOException;
 
 public class StockEvent extends Command {
 
     public StockEvent() {
-        this.name = "stock";
+        this.name = "stonks";
         this.aliases = new String[]{"Stock,STOCK"};
         this.help = "returns the stock left ";
       //  this.requiredRole = "OWNER";
+
 
     }
 
@@ -27,21 +28,21 @@ public class StockEvent extends Command {
         String nord = null;
         String steam = null;
         try {
-            spotify = Integer.toString(Extensions.StockEvent.stock(Spotify));
-            steam = Integer.toString(Extensions.StockEvent.stock(Steam));
-            nord = Integer.toString(Extensions.StockEvent.stock(Nord));
+            spotify = Integer.toString(StockExtension.stock(Spotify));
+            steam = Integer.toString(StockExtension.stock(Steam));
+            nord = Integer.toString(StockExtension.stock(Nord));
 
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             EmbedBuilder builder = new EmbedBuilder();
-            builder.setTitle("Stock Remaning : ");
+            builder.setTitle("------Stock Remaning------");
           //  builder.addBlankField(true);
-            builder.addField("**Spotify Accounts** \n```note these Spotify accounts are not working at the moment as they were added for testing purposes. New Accounts will be added soon !```", spotify, false);
+            builder.addField("**Spotify Accounts**", spotify +" :Spotify: ", true);
             builder.addField("**Steam Accounts**", steam, false);
             builder.addField("**Nord-Vpn Accounts**", nord, false);
-
-            event.getChannel().sendMessage(builder.build()).queue();
+                    event.getJDA().getTextChannelById("701858991994699777").sendMessage(builder.build()).queue();
+           // event.getJDA().getTextChannelById("701858991994699777").sendMessage("```----Stocks Remaning------ \nSpotify: "+spotify+" :Spotify: ```").queue();
 
                 if(Integer.parseInt(spotify)<15) {
                     String finalcount = spotify;
