@@ -4,6 +4,7 @@ import Extensions.StockExtension;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.User;
 
 import java.io.IOException;
 
@@ -41,10 +42,10 @@ public class StockEvent extends Command {
             builder.addField("**Spotify Accounts**", spotify +" :Spotify: ", true);
             builder.addField("**Steam Accounts**", steam, false);
             builder.addField("**Nord-Vpn Accounts**", nord, false);
-                    event.getJDA().getTextChannelById("701858991994699777").sendMessage(builder.build()).queue();
-           // event.getJDA().getTextChannelById("701858991994699777").sendMessage("```----Stocks Remaning------ \nSpotify: "+spotify+" :Spotify: ```").queue();
 
-                if(Integer.parseInt(spotify)<15) {
+                    event.getJDA().getTextChannelById("701858991994699777").sendMessage(builder.build()).queue();
+          
+             if(Integer.parseInt(spotify)<15) {
                     String finalcount = spotify;
                     event.getGuild().getOwner().getUser().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This is to remind you that you have to restock Spotify as there are only " + finalcount + " accounts left")).queue();
                 }
