@@ -32,16 +32,14 @@ public class FileEvent extends ListenerAdapter {
 
         /*This gets the message inputed on your channel to a variable*/
         String message = event.getMessage().getContentRaw();
+
         /***Channel Stuff along with some id's*/
         String channel_id=event.getChannel().getId().toString();
-        String general_channel_id="676625827043213314";
-        String delux_channel_id="683611441575624751";
-        String preminum_channel_id="683611405932691459";
-        String free_channel_id="683595742836817940";
-        /***For Spotify **/
+
+        /***For Spotify **/  /*Paid*/
         if (message.equalsIgnoreCase("!spotify")) {
             Scanner ss = null;
-            if(channel_id.equals(preminum_channel_id)||channel_id.equals(delux_channel_id)){
+            if(channel_id.equals("701870798088044665")){
             try {
                 ss = new Scanner(Spotify);
             } catch (FileNotFoundException e) {
@@ -71,10 +69,10 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Steam **/
+        /***For Steam **/   /*Paid*/
             if(message.equalsIgnoreCase("!steam")) {
                 Scanner sm = null;
-                if (channel_id.equals(preminum_channel_id) || channel_id.equals(delux_channel_id)) {
+                if(channel_id.equals("701870798088044665")){
                     try {
                         sm = new Scanner(Steam);
                     } catch (FileNotFoundException e) {
@@ -98,10 +96,11 @@ public class FileEvent extends ListenerAdapter {
                     event.getChannel().sendMessage("You cannot do that here " + event.getAuthor().getAsMention().toString()).queue();
                 }
             }
-             /***For NordVpn **/
-            if (message.equalsIgnoreCase("!nordvpn")) {
+
+        /***For NordVpn **/  /*Free*/
+        if (message.equalsIgnoreCase("!nordvpn")) {
                 Scanner sn = null;
-                if(!channel_id.equals(general_channel_id)) {
+                if(channel_id.equals("702137079798431744")) {
 
                         try {
                             sn = new Scanner(Nord);
@@ -126,6 +125,18 @@ public class FileEvent extends ListenerAdapter {
                     event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
                 }
                 }
+
+        /***For Uplay **/  /*Paid*/
+
+        /***For Hulu **/  /*Free*/
+
+        /***For PSN **/  /*Paid*/
+
+        /***For Origin **/  /*Free*/
+
+        /***For IP-Vanish **/  /*Paid*/
+
+        /***For Minecraft **/  /*Paid*/
 
 
     }
