@@ -24,10 +24,12 @@ public class Bot {
 
         /*Client Builder Builder Commands*/
         clientBuilder.setPrefix("!");
-        clientBuilder.setOwnerId("681047758303789135");
+        clientBuilder.setHelpWord("helpme");
+        clientBuilder.setOwnerId("539059016756887552");
+        clientBuilder.setEmojis("✅","⚠","❌");
         clientBuilder.addCommand(new Magic());
         clientBuilder.addCommand(new StockEvent());
-        clientBuilder.setHelpWord("helpme");
+        clientBuilder.addCommand(new HelpGen());
         CommandClient client = clientBuilder.build();
 
         /*Calling all methods via JDA*/
