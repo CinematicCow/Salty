@@ -17,6 +17,7 @@ public class PingEvent extends ListenerAdapter {
                     .queue(response /* => Message */ -> {
                         response.editMessageFormat("Ping is : %d ms", System.currentTimeMillis() - time).queue();
                     });
+                    event.getMessage().addReaction("🔥").queue();
         }
     }
 }
