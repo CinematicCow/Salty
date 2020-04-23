@@ -4,7 +4,11 @@ import Extensions.StockExtension;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
+
 import net.dv8tion.jda.api.entities.Message;
+
+import net.dv8tion.jda.api.entities.User;
+
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -45,6 +49,7 @@ public class StockEvent extends Command {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+
            List<Message> messages = event.getJDA().getTextChannelById("702601231398600865").getHistory().retrievePast(2).complete();
            event.getJDA().getTextChannelById("702601231398600865").deleteMessages(messages).queue();
            /*Embeded Builder for Stock Display*/
