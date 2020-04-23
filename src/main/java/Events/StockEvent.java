@@ -4,8 +4,11 @@ import Extensions.StockExtension;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Message;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class StockEvent extends Command {
 
@@ -20,43 +23,49 @@ public class StockEvent extends Command {
 
     @Override
     public void execute(CommandEvent event) {
-        String Spotify = "Accounts/Nonworking-acc.txt";
-        String Steam = "Accounts/Stezm_acc.txt";
-        String Nord = "Accounts/Nord-acc.txt";
 
-        String spotify = null;
-        String nord = null;
-        String steam = null;
-        try {
-            spotify = Integer.toString(StockExtension.stock(Spotify));
-            steam = Integer.toString(StockExtension.stock(Steam));
-            nord = Integer.toString(StockExtension.stock(Nord));
+        /*String Arrays || Datatables*/
+            String[] name = {"Spotify", "Steam", "Nord-vpn", "Domino's", "Hulu", "Psn", "Origin", "Ip-vansih", "Minecraft"};
+            String[] path = {"Accounts/Nonworking-acc.txt", "Accounts/Stezm_acc.txt", "Accounts/Nord-acc.txt", "Accounts/testing.txt",
+                "Accounts/testing.txt", "Accounts/testing.txt", "Accounts/testing.txt", "Accounts/testing.txt", "Accounts/testing.txt"};
+             String[] stock = {null, null, null, null, null, null, null, null,null};
+    
+       
+       try {
+            stock[0] = Integer.toString(StockExtension.stock(path[0]));
+            stock[1] = Integer.toString(StockExtension.stock(path[1]));
+            stock[2] = Integer.toString(StockExtension.stock(path[2]));
+            stock[3] = Integer.toString(StockExtension.stock(path[3]));
+            stock[4] = Integer.toString(StockExtension.stock(path[4]));
+            stock[5] = Integer.toString(StockExtension.stock(path[5]));
+            stock[6] = Integer.toString(StockExtension.stock(path[6]));
+            stock[7] = Integer.toString(StockExtension.stock(path[7]));
+            stock[8] = Integer.toString(StockExtension.stock(path[8]));
 
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            EmbedBuilder builder = new EmbedBuilder();
-            builder.setTitle("------Stock Remaning------");
-          //  builder.addBlankField(true);
-            builder.addField("**Spotify Accounts**", spotify +" :Spotify: ", true);
-            builder.addField("**Steam Accounts**", steam, false);
-            builder.addField("**Nord-Vpn Accounts**", nord, false);
-                    event.getJDA().getTextChannelById("701858991994699777").sendMessage(builder.build()).queue();
-           // event.getJDA().getTextChannelById("701858991994699777").sendMessage("```----Stocks Remaning------ \nSpotify: "+spotify+" :Spotify: ```").queue();
+           List<Message> messages = event.getJDA().getTextChannelById("702601231398600865").getHistory().retrievePast(2).complete();
+           event.getJDA().getTextChannelById("702601231398600865").deleteMessages(messages).queue();
+           /*Embeded Builder for Stock Display*/
+           EmbedBuilder builder = new EmbedBuilder();
+           builder.setAuthor("   🔥" + event.getGuild().getName() + "🔥", "https://discord.gg/WcDpNQB");
+           builder.setThumbnail(event.getGuild().getIconUrl());
+           builder.setTitle("_Stock Remaning_");
+           builder.setColor(0xd30438);
+           builder.setDescription("Below are the amount of accounts we have in our storehouse. If you want to see/add  more accounts here, please contact the staff.");
+           builder.addField("**"+name[0]+"** Accounts" +": ", stock[0], true);
+           builder.addField("**"+name[1]+"** Accounts" +": ", stock[1], true);
+           builder.addField("**"+name[2]+"** Accounts" +": ", stock[2], true);
+           builder.addField("**"+name[3]+"** Accounts" +": ", stock[3], true);
+           builder.addField("**"+name[4]+"** Accounts" +": ", stock[4], true);
+           builder.addField("**"+name[5]+"** Accounts" +": ", stock[5], true);
+           builder.addField("**"+name[6]+"** Accounts" +": ", stock[6], true);
+           builder.addField("**"+name[7]+"** Accounts" +": ", stock[7], true);
+           builder.addField("**"+name[8]+"** Accounts" +": ", stock[8], true);
+           event.getJDA().getTextChannelById("702601231398600865").sendMessage(builder.build()).queue();
 
-                if(Integer.parseInt(spotify)<15) {
-                    String finalcount = spotify;
-                    event.getGuild().getOwner().getUser().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This is to remind you that you have to restock Spotify as there are only " + finalcount + " accounts left")).queue();
-                }
-            if(Integer.parseInt(steam)<15) {
-                String finalcount = steam;
-                event.getGuild().getOwner().getUser().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This is to remind you that you have to restock Steam as there are only " + finalcount + " accounts left")).queue();
-            }
-            if(Integer.parseInt(nord)<15) {
-                String finalcount = nord;
-                event.getGuild().getOwner().getUser().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This is to remind you that you have to restock Nord Vpn as there are only " + finalcount + " accounts left")).queue();
-            }
+               }
         }
     }
 
-}
