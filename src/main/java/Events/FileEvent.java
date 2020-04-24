@@ -75,7 +75,7 @@ public class FileEvent extends ListenerAdapter {
 /************************************************````````````PAID````````````*********************************************/
 
         /***For Mail **/  /*Paid*/
-        if (message.equalsIgnoreCase("!fa"))/*Then Why The Fuck Is It Not Working Here?*/  {
+        if (message.equalsIgnoreCase("!mail"))/*Then Why The Fuck Is It Not Working Here?*/  {
             Scanner ss = null;
             if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
             try {
