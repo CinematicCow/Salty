@@ -28,19 +28,19 @@ public class StockEvent extends Command {
     public void execute(CommandEvent event) {
 
         /*String Arrays || Datatables*/
-            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Domino's", "Steam", "Psn", "Origin", "Ip-vansih", "Minecraft"};
+            String[] name = {"Nord-Vpn", "Hulu", "Full Access Mail", "Steam", "Domino's", "Psn",  "Ip-vansih", "Minecraft"};
             String[] path = {
-                             "Accounts/Nord-acc.txt",
-                             "Accounts/Stezm_acc.txt",
-                             "Accounts/testing.txt",
-                             "Accounts/testing.txt",
-                             "Accounts/testing.txt",
-                             "Accounts/testing.txt",
-                             "Accounts/Nonworking-acc.txt",
-                             "Accounts/testing.txt",
-                             "Accounts/testing.txt"
+                             "Accounts/Nord.txt",
+                             "Accounts/Hulu.txt",
+                             "Accounts/FullAccess.txt",
+                             "Accounts/Steam.txt",
+                             "Accounts/Dominos.txt",
+                             "Accounts/Psn.txt",
+                             "Accounts/IPvanish.txt",
+                             "Accounts/Minecraft.txt"
+                    ,
             };
-             String[] stock = {null, null, null, null, null, null, null, null,null};
+             String[] stock = {null, null, null, null, null, null, null, null};
     
        
        try {
@@ -52,7 +52,7 @@ public class StockEvent extends Command {
             stock[5] = Integer.toString(StockExtension.stock(path[5]));
             stock[6] = Integer.toString(StockExtension.stock(path[6]));
             stock[7] = Integer.toString(StockExtension.stock(path[7]));
-            stock[8] = Integer.toString(StockExtension.stock(path[8]));
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,14 +70,14 @@ public class StockEvent extends Command {
            builder.addField("","```                 Free Accounts ```",false);
            builder.addField("**"+name[0]+"** Accounts" +": ", stock[0], true);
            builder.addField("**"+name[1]+"** Accounts" +": ", stock[1], true);
-           builder.addField("**"+name[2]+"** Accounts" +": ", stock[2], true);
            builder.addField("","```                Premium Accounts ```",false);
+           builder.addField("**"+name[2]+"** Accounts" +": ", stock[2], true);
            builder.addField("**"+name[3]+"** Accounts" +": ", stock[3], true);
            builder.addField("**"+name[4]+"** Accounts" +": ", stock[4], true);
            builder.addField("**"+name[5]+"** Accounts" +": ", stock[5], true);
            builder.addField("**"+name[6]+"** Accounts" +": ", stock[6], true);
            builder.addField("**"+name[7]+"** Accounts" +": ", stock[7], true);
-           builder.addField("**"+name[8]+"** Accounts" +": ", stock[8], true);
+
            event.getJDA().getTextChannelById("702601231398600865").sendMessage(builder.build()).queue();
 
                }

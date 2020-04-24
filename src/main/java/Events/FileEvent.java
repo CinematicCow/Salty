@@ -20,85 +20,87 @@ public class FileEvent extends ListenerAdapter {
 
 
         /*All the embeded builders objects are here */
-        EmbedBuilder spotify = new EmbedBuilder();
+        EmbedBuilder mail = new EmbedBuilder();
         EmbedBuilder steam = new EmbedBuilder();
         EmbedBuilder nord = new EmbedBuilder();
         EmbedBuilder dominos = new EmbedBuilder();
         EmbedBuilder hulu = new EmbedBuilder();
         EmbedBuilder psn = new EmbedBuilder();
-        EmbedBuilder origin = new EmbedBuilder();
+        //EmbedBuilder origin = new EmbedBuilder();
         EmbedBuilder ipvansih = new EmbedBuilder();
         EmbedBuilder minecraft = new EmbedBuilder();
-
+        EmbedBuilder errorMsg= new EmbedBuilder();
+        EmbedBuilder sent= new EmbedBuilder();
 
         /*All the paths are here*/
-        String SPOTIFY_PATH = "Accounts/Nonworking-acc.txt";
-        String STEAM_PATH = "Accounts/Stezm_acc.txt";
-        String NORD_PATH = "Accounts/Nord-acc.txt";
-        String DOMINOS_PATH="Accounts/testing.txt";
-        String HULU_PATH="Accounts/testing.txt";
-        String PSN_PATH="Accounts/testing.txt";
-        String ORIGIN_PATH="Accounts/testing.txt";
-        String IPVANISH_PATH="Accounts/testing.txt";
-        String MINECRAFT_PATH="Accounts/testing.txt";
+        String MAIL_PATH =      "Accounts/FullAccess.txt";
+        String STEAM_PATH =     "Accounts/Steam.txt";
+        String NORD_PATH =      "Accounts/Nord.txt";
+        String DOMINOS_PATH=    "Accounts/Dominos.txt";
+        String HULU_PATH=       "Accounts/Hulu.txt";
+        String PSN_PATH=        "Accounts/Psn.txt";
+        String IPVANISH_PATH=   "Accounts/IPvanish.txt";
+        String MINECRAFT_PATH=  "Accounts/Minecraft.txt";
 
         /*All the file objects are here*/
         File Steam = new File(STEAM_PATH);
-        File Spotify = new File(SPOTIFY_PATH);
+        File Mail = new File(MAIL_PATH);
         File Nord = new File(NORD_PATH);
         File Dominos = new File(DOMINOS_PATH);
         File Hulu = new File(HULU_PATH);
         File Psn = new File(PSN_PATH);
-        File Origin = new File(ORIGIN_PATH);
+        //File Origin = new File(ORIGIN_PATH);
         File Ipvanish = new File(IPVANISH_PATH);
         File Minecraft=new File(MINECRAFT_PATH);
 
         /*This gets the message inputed on your channel to a variable*/
         String message=event.getMessage().getContentRaw();
 
-        /***Channel Stuff along with some id's*/
+        /*Channel Stuff along with some id's*/
         String channel_id=event.getChannel().getId().toString();
 
+        /*Messages*/
         String freeMsg="Thanks for using "+event.getGuild().getName()+"'s Services "+event.getAuthor().getName()+". Contact Staff if this account is not working.";
         String paidMsg="Thanks for using "+event.getGuild().getName()+"'s premium services "+event.getAuthor().getName()+". Contact Staff if this account is not working.";
 
+        errorMsg.setColor(Color.RED);
+        errorMsg.setTitle("⚔ Error ⚔");
+        errorMsg.setDescription(event.getAuthor().getAsMention()+" You cannot generate that here or you do not have the required permissions");
+        errorMsg.setFooter("If you think this should not have happened please contact the staff");
 
+        sent.setColor(Color.green);
+        sent.setTitle("🟢 Successfully Sent");
+        sent.setDescription(event.getAuthor().getAsMention()+"Your requested account was sent to via DM");
 
 /************************************************````````````PAID````````````*********************************************/
 
-        /***For Spotify **/  /*Paid*/
-        if (message.equalsIgnoreCase("!spotify"))/*Then Why The Fuck Is It Not Working Here?*/  {
+        /***For Mail **/  /*Paid*/
+        if (message.equalsIgnoreCase("!fa"))/*Then Why The Fuck Is It Not Working Here?*/  {
             Scanner ss = null;
             if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
             try {
-                ss = new Scanner(Spotify);
+                ss = new Scanner(Mail);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            String data_spotify = ss.nextLine().trim();
+            String data_mail = ss.nextLine().trim();
 
-            // if (!event.getAuthor().isBot()) {
-            //event.getChannel().sendMessage("here you go \n"+data).queue();
-            spotify.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
-            spotify.setTitle("Try using this account here ", "https://accounts.spotify.com/en/login");
-            spotify.setThumbnail("https://techtalk.at/wp-content/uploads/2018/03/spotify-square.png");
-            spotify.setColor(Color.green);
-            spotify.addField("Spotify", data_spotify, true);
-            //spotify.addBlankField(true);
-            spotify.setFooter(paidMsg,event.getGuild().getIconUrl());
+            mail.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+            mail.setThumbnail("https://www.salesforce.com/content/dam/blogs/ca/Blog%20Posts/digital-direct-mail-og.png");
+            mail.setColor(Color.RED);
+            mail.addField("Full Access Mail Account ", data_mail, true);
+            mail.setFooter(paidMsg,event.getGuild().getIconUrl());
 
-            event.getChannel().sendMessage("Account sent on DM " + event.getAuthor().getAsMention()).queue();
-           // event.getChannel().sendMessage("Spotify Accounts are out of stock. \nPlease check back later or contact "+event.getGuild().getOwner().getAsMention()).queue();
-                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(spotify.build())).queue();
-            event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage("This account is not working as these Spotify accounts were added for testing purposes")).queue();
+            event.getChannel().sendMessage(sent.build()).queue();
+            event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(mail.build())).queue();
 
             //System.out.println(data);
             ss.close();
             // }
-            FileDelete.delete(SPOTIFY_PATH);
+            FileDelete.delete(MAIL_PATH);
         }
             else{
-                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+                event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
 
@@ -114,20 +116,20 @@ public class FileEvent extends ListenerAdapter {
                     String data_steam = sm.nextLine().trim();
 
                     // if (!event.getAuthor().isBot()) {
-                    spotify.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
-                    spotify.setTitle("Try using this account here ", "https://store.steampowered.com/login/");
+                    steam.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    steam.setTitle("Try using this account here ", "https://store.steampowered.com/login/");
                     steam.setThumbnail("https://www.pcgamesn.com/wp-content/uploads/2018/07/steam-logo-580x332.jpg");
                     steam.setColor(Color.CYAN);
                     steam.addField("STEAM", data_steam, true);
                     steam.setFooter(paidMsg,event.getGuild().getIconUrl());
-                    event.getChannel().sendMessage("Account sent on DM " + event.getAuthor().getAsMention()).queue();
+                    event.getChannel().sendMessage(sent.build()).queue();
                     event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(steam.build())).queue();
 
                     sm.close();
                     // }
                     FileDelete.delete(STEAM_PATH);
                 } else {
-                    event.getChannel().sendMessage("You cannot do that here " + event.getAuthor().getAsMention().toString()).queue();
+                    event.getChannel().sendMessage(errorMsg.build()).queue();
                 }
             }
 
@@ -150,7 +152,7 @@ public class FileEvent extends ListenerAdapter {
                 dominos.setColor(0xFF0000);
                 dominos.addField("Domino's Account",data_dominos, true);
                 dominos.setFooter(paidMsg,event.getGuild().getIconUrl());
-                event.getChannel().sendMessage("Account sent on DM  " + event.getAuthor().getAsMention()).queue();
+                event.getChannel().sendMessage(sent.build()).queue();
                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(dominos.build())).queue();
 
 
@@ -160,7 +162,7 @@ public class FileEvent extends ListenerAdapter {
                 FileDelete.delete(DOMINOS_PATH);
             }
             else{
-                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+                event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
 
@@ -183,7 +185,7 @@ public class FileEvent extends ListenerAdapter {
                 psn.setColor(Color.BLUE);
                 psn.addField("PSN Account",data_psn, true);
                 psn.setFooter(paidMsg,event.getGuild().getIconUrl());
-                event.getChannel().sendMessage("Account sent on DM  " + event.getAuthor().getAsMention()).queue();
+                event.getChannel().sendMessage(sent.build()).queue();
                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(psn.build())).queue();
 
 
@@ -193,7 +195,7 @@ public class FileEvent extends ListenerAdapter {
                 FileDelete.delete(PSN_PATH);
             }
             else{
-                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+                event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
 
@@ -216,7 +218,7 @@ public class FileEvent extends ListenerAdapter {
                 ipvansih.setColor(0x85ff54);
                 ipvansih.addField("IP Vanish Account",data_ipvanish, true);
                 ipvansih.setFooter(paidMsg,event.getGuild().getIconUrl());
-                event.getChannel().sendMessage("Account sent on DM  " + event.getAuthor().getAsMention()).queue();
+                event.getChannel().sendMessage(sent.build()).queue();
                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(ipvansih.build())).queue();
 
 
@@ -226,7 +228,7 @@ public class FileEvent extends ListenerAdapter {
                 FileDelete.delete(IPVANISH_PATH);
             }
             else{
-                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+                event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
 
@@ -249,7 +251,7 @@ public class FileEvent extends ListenerAdapter {
                 minecraft.setColor(Color.green);
                 minecraft.addField("Minecraft Account",data_minecraft, true);
                 minecraft.setFooter(paidMsg,event.getGuild().getIconUrl());
-                event.getChannel().sendMessage("Account sent on DM  " + event.getAuthor().getAsMention()).queue();
+                event.getChannel().sendMessage(sent.build()).queue();
                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(minecraft.build())).queue();
 
 
@@ -259,14 +261,14 @@ public class FileEvent extends ListenerAdapter {
                 FileDelete.delete(MINECRAFT_PATH);
             }
             else{
-                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+                event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
 
 /************************************************````````````FREE````````````*********************************************/
 
         /***For NordVpn **/  /*Free*/
-        if (message.equalsIgnoreCase("!nordvpn")) {
+        if (message.equalsIgnoreCase("!nord")) {
             Scanner sn = null;
             if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")) {
 
@@ -278,20 +280,20 @@ public class FileEvent extends ListenerAdapter {
                 String data_nord = sn.nextLine().trim();
 
 
-                spotify.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
-                spotify.setTitle("Try using this account here ", "https://ucp.nordvpn.com/login/");
+                nord.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                nord.setTitle("Try using this account here ", "https://ucp.nordvpn.com/login/");
                 nord.setThumbnail("https://thebestvpn.uk/wp-content/uploads/2015/06/NordVPN-review-1280x600-1024x480.png");
                 nord.setColor(Color.BLUE);
                 nord.addField("NORD VPN Account: ", data_nord, true);
                 nord.setFooter(freeMsg,event.getGuild().getIconUrl());
-                event.getChannel().sendMessage("Account sent on DM to " + event.getAuthor().getAsMention()).queue();
+                event.getChannel().sendMessage(sent.build()).queue();
                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(nord.build())).queue();
                 sn.close();
 
                 FileDelete.delete(NORD_PATH);
             }
             else{
-                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+                event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
 
@@ -314,7 +316,7 @@ public class FileEvent extends ListenerAdapter {
                 hulu.setColor(Color.GREEN);
                 hulu.addField("HULU Account",data_hulu, true);
                 hulu.setFooter(freeMsg,event.getGuild().getIconUrl());
-                event.getChannel().sendMessage("Account sent on DM  " + event.getAuthor().getAsMention()).queue();
+                event.getChannel().sendMessage(sent.build()).queue();
                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(hulu.build())).queue();
 
 
@@ -324,11 +326,11 @@ public class FileEvent extends ListenerAdapter {
                 FileDelete.delete(HULU_PATH);
             }
             else{
-                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+                event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
 
-        /***For Origin **/  /*Free*/
+       /* *//***For Origin **//*  *//*Free*//*
         if (message.equalsIgnoreCase("!origin")) {
             Scanner ss = null;
             if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")){
@@ -347,7 +349,7 @@ public class FileEvent extends ListenerAdapter {
                 origin.setColor(0xe35f0e);
                 origin.addField("ORIGIN Account",data_origin, true);
                 origin.setFooter(freeMsg,event.getGuild().getIconUrl());
-                event.getChannel().sendMessage("Account sent on DM  " + event.getAuthor().getAsMention()).queue();
+                event.getChannel().sendMessage(sent.build()).queue();
                 event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(origin.build())).queue();
 
 
@@ -357,9 +359,9 @@ public class FileEvent extends ListenerAdapter {
                 FileDelete.delete(ORIGIN_PATH);
             }
             else{
-                event.getChannel().sendMessage("You cannot do that here "+event.getAuthor().getAsMention().toString()).queue();
+                event.getChannel().sendMessage(errorMsg.build()).queue();
             }
-        }
+        }*/
 
 
     }

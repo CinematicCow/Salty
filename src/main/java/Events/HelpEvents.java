@@ -24,7 +24,7 @@ public class HelpEvents extends ListenerAdapter {
                 embed.setThumbnail(event.getGuild().getIconUrl());
                 embed.addField("-For help regarding generating accounts", "!help-gen", false);
                 embed.addField("-To check my ping", "!ping", false);
-                embed.addField("-To donate (well everyone knows,you'll not)", "!donate [btc/paypal/other]", false);
+                embed.addField("-❌To donate (well everyone knows,you'll not)❌", "!donate [btc/paypal/other]", false);
                 embed.addField("-The most useless command ever", "!helpme", false);
                 embed.addField("-To check remaning stock", "!stonks (This command is only avilabe on stocks channel)", false);
                 embed.setFooter("If something is not working properly with me, don't hesitate to contact my creator CinematicCow");

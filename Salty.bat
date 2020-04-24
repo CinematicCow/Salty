@@ -1,0 +1,1 @@
+java -jar .\build\libs\Javabot-1.0
