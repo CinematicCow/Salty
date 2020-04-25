@@ -243,8 +243,6 @@ public class FileEvent extends ListenerAdapter {
                 }
                 String data_minecraft = ss.nextLine().trim();
 
-                // if (!event.getAuthor().isBot()) {
-                //event.getChannel().sendMessage("here you go \n"+data).queue();
                 minecraft.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
                 minecraft.setTitle("Try using this account here ", "https://my.minecraft.net/en-us/login/");
                 minecraft.setThumbnail("http://minecrafterhelp.weebly.com/uploads/1/2/0/4/12046836/2170468_orig.png?151");
