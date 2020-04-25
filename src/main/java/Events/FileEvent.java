@@ -237,7 +237,7 @@ public class FileEvent extends ListenerAdapter {
             Scanner ss = null;
             if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
                 try {
-                    ss = new Scanner(Ipvanish);
+                    ss = new Scanner(Minecraft);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
