@@ -18,7 +18,7 @@ public class HelpEvents extends ListenerAdapter {
             if (!event.getMember().getUser().isBot()) {
 
                 embed.setTitle("Salty");
-                embed.setDescription("HELP ");
+                embed.setDescription("HELP COMMANDS ");
                 embed.setColor(0x6818fc);
                 embed.setAuthor("🔥Lamentable Flame🔥", "https://discord.gg/JyBPnnq");
                 embed.setThumbnail(event.getGuild().getIconUrl());
@@ -27,6 +27,8 @@ public class HelpEvents extends ListenerAdapter {
                 embed.addField("-❌To donate (well everyone knows,you'll not)❌", "!donate [btc/paypal/other]", false);
                 embed.addField("-The most useless command ever", "!helpme", false);
                 embed.addField("-To check remaning stock", "!stonks (This command is only avilabe on stocks channel)", false);
+                embed.addField("-To sell something", "!wts", false);
+                embed.addField("-To buy something", "!wtb", false);
                 embed.setFooter("If something is not working properly with me, don't hesitate to contact my creator CinematicCow");
                 event.getChannel().sendMessage(embed.build()).queue();
 

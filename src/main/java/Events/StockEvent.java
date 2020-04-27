@@ -28,19 +28,20 @@ public class StockEvent extends Command {
     public void execute(CommandEvent event) {
 
         /*String Arrays || Datatables*/
-            String[] name = {"Nord-Vpn", "Hulu", "Full Access Mail", "Steam", "Domino's", "Psn",  "Ip-vansih", "Minecraft"};
+            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Full Access Mail", "Crunchy Role", "Domino's", "Psn",  "Ip-vansih", "Minecraft"};
             String[] path = {
                              "Accounts/Nord.txt",
                              "Accounts/Hulu.txt",
+                              "Accounts/Origin.txt",
                              "Accounts/FullAccess.txt",
-                             "Accounts/Steam.txt",
+                             "Accounts/CrunchyRole.txt",
                              "Accounts/Dominos.txt",
                              "Accounts/Psn.txt",
                              "Accounts/IPvanish.txt",
-                             "Accounts/Minecraft.txt"
-                    ,
+                             "Accounts/Minecraft.txt",
+
             };
-             String[] stock = {null, null, null, null, null, null, null, null};
+             String[] stock = {null, null, null, null, null, null, null, null,null};
     
        
        try {
@@ -52,6 +53,7 @@ public class StockEvent extends Command {
             stock[5] = Integer.toString(StockExtension.stock(path[5]));
             stock[6] = Integer.toString(StockExtension.stock(path[6]));
             stock[7] = Integer.toString(StockExtension.stock(path[7]));
+            stock[8] = Integer.toString(StockExtension.stock(path[8]));
 
 
         } catch (IOException e) {
@@ -62,7 +64,7 @@ public class StockEvent extends Command {
            event.getJDA().getTextChannelById("702601231398600865").deleteMessages(messages).queue();
            /*Embeded Builder for Stock Display*/
            EmbedBuilder builder = new EmbedBuilder();
-           builder.setAuthor("   🔥" + event.getGuild().getName() + "🔥", "https://discord.gg/WcDpNQB");
+           builder.setAuthor( event.getGuild().getName() , "https://discord.gg/WcDpNQB");
            builder.setThumbnail(event.getGuild().getIconUrl());
            builder.setTitle("_Stock Remaning_");
            builder.setColor(0xd30438);
@@ -70,13 +72,14 @@ public class StockEvent extends Command {
            builder.addField("","```                 Free Accounts ```",false);
            builder.addField("**"+name[0]+"** Accounts" +": ", stock[0], true);
            builder.addField("**"+name[1]+"** Accounts" +": ", stock[1], true);
-           builder.addField("","```                Premium Accounts ```",false);
            builder.addField("**"+name[2]+"** Accounts" +": ", stock[2], true);
+           builder.addField("","```                Premium Accounts ```",false);
            builder.addField("**"+name[3]+"** Accounts" +": ", stock[3], true);
            builder.addField("**"+name[4]+"** Accounts" +": ", stock[4], true);
            builder.addField("**"+name[5]+"** Accounts" +": ", stock[5], true);
            builder.addField("**"+name[6]+"** Accounts" +": ", stock[6], true);
            builder.addField("**"+name[7]+"** Accounts" +": ", stock[7], true);
+           builder.addField("**"+name[8]+"** Accounts" +": ", stock[8], true);
 
            event.getJDA().getTextChannelById("702601231398600865").sendMessage(builder.build()).queue();
 
