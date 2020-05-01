@@ -28,20 +28,25 @@ public class StockEvent extends Command {
     public void execute(CommandEvent event) {
 
         /*String Arrays || Datatables*/
-            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Full Access Mail", "Crunchy Role", "Domino's", "Psn",  "Ip-vansih", "Minecraft"};
+            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Razer", "Zenmate","Full Access Mail", "Crunchy Role", "Domino's", "Psn",  "Ip-vansih", "Minecraft","Uplay","Vyvr-Vpn", "Napster"};
             String[] path = {
                              "Accounts/Nord.txt",
                              "Accounts/Hulu.txt",
-                              "Accounts/Origin.txt",
+                             "Accounts/Origin.txt",
+                             "Accounts/Razor.txt",
+                             "Accounts/Zenmate.txt",
                              "Accounts/FullAccess.txt",
                              "Accounts/CrunchyRole.txt",
                              "Accounts/Dominos.txt",
                              "Accounts/Psn.txt",
                              "Accounts/IPvanish.txt",
                              "Accounts/Minecraft.txt",
+                             "Accounts/Uplay.txt",
+                             "Accounts/Vyvr-Vpn.txt",
+                             "Accounts/Napster.txt",
 
             };
-             String[] stock = {null, null, null, null, null, null, null, null,null};
+             String[] stock = {null, null, null, null, null, null, null, null,null, null, null, null, null,null};
     
        
        try {
@@ -54,6 +59,11 @@ public class StockEvent extends Command {
             stock[6] = Integer.toString(StockExtension.stock(path[6]));
             stock[7] = Integer.toString(StockExtension.stock(path[7]));
             stock[8] = Integer.toString(StockExtension.stock(path[8]));
+            stock[9] = Integer.toString(StockExtension.stock(path[9]));
+            stock[10] = Integer.toString(StockExtension.stock(path[10]));
+            stock[11] = Integer.toString(StockExtension.stock(path[11]));
+            stock[12] = Integer.toString(StockExtension.stock(path[12]));
+            stock[13] = Integer.toString(StockExtension.stock(path[13]));
 
 
         } catch (IOException e) {
@@ -73,14 +83,18 @@ public class StockEvent extends Command {
            builder.addField("**"+name[0]+"** Accounts" +": ", stock[0], true);
            builder.addField("**"+name[1]+"** Accounts" +": ", stock[1], true);
            builder.addField("**"+name[2]+"** Accounts" +": ", stock[2], true);
-           builder.addField("","```                Premium Accounts ```",false);
            builder.addField("**"+name[3]+"** Accounts" +": ", stock[3], true);
            builder.addField("**"+name[4]+"** Accounts" +": ", stock[4], true);
+           builder.addField("","```                Premium Accounts ```",false);
            builder.addField("**"+name[5]+"** Accounts" +": ", stock[5], true);
            builder.addField("**"+name[6]+"** Accounts" +": ", stock[6], true);
            builder.addField("**"+name[7]+"** Accounts" +": ", stock[7], true);
            builder.addField("**"+name[8]+"** Accounts" +": ", stock[8], true);
-
+           builder.addField("**"+name[9]+"** Accounts" +": ", stock[9], true);
+           builder.addField("**"+name[10]+"** Accounts" +": ", stock[10], true);
+           builder.addField("**"+name[11]+"** Accounts" +": ", stock[11], true);
+           builder.addField("**"+name[12]+"** Accounts" +": ", stock[12], true);
+           builder.addField("**"+name[13]+"** Accounts" +": ", stock[13], true);
            event.getJDA().getTextChannelById("702601231398600865").sendMessage(builder.build()).queue();
 
                }

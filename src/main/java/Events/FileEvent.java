@@ -30,9 +30,16 @@ public class FileEvent extends ListenerAdapter {
         EmbedBuilder origin = new EmbedBuilder();
         EmbedBuilder ipvansih = new EmbedBuilder();
         EmbedBuilder minecraft = new EmbedBuilder();
+        EmbedBuilder napster = new EmbedBuilder();
+        EmbedBuilder razer=new EmbedBuilder();
+        EmbedBuilder vyvr=new EmbedBuilder();
+        EmbedBuilder zenmate=new EmbedBuilder();
+        EmbedBuilder uplay=new EmbedBuilder();
         EmbedBuilder errorMsg= new EmbedBuilder();
         EmbedBuilder sent= new EmbedBuilder();
         EmbedBuilder sorry =new EmbedBuilder();
+
+
         /*All the paths are here*/
         String MAIL_PATH =      "Accounts/FullAccess.txt";
         String CR_PATH =        "Accounts/CrunchyRole.txt";
@@ -43,6 +50,12 @@ public class FileEvent extends ListenerAdapter {
         String IPVANISH_PATH=   "Accounts/IPvanish.txt";
         String MINECRAFT_PATH=  "Accounts/Minecraft.txt";
         String ORIGIN_PATH=     "Accounts/Origin.txt";
+        String NAPSTER_PATH=     "Accounts/Napster.txt";
+        String RAZER_PATH=     "Accounts/Razor.txt";
+        String ZENMATE_PATH=     "Accounts/Zenmate.txt";
+        String VYVR_PATH=     "Accounts/Vyvr-Vpn.txt";
+        String UPLAY_PATH=    "Accounts/Uplay.txt";
+
 
         /*All the file objects are here*/
         File Cr = new File(CR_PATH);
@@ -54,7 +67,11 @@ public class FileEvent extends ListenerAdapter {
         File Origin = new File(ORIGIN_PATH);
         File Ipvanish = new File(IPVANISH_PATH);
         File Minecraft=new File(MINECRAFT_PATH);
-
+        File Napster=new File(NAPSTER_PATH);
+        File Vyvr=new File(VYVR_PATH);
+        File Zenmate=new File(ZENMATE_PATH);
+        File Razer=new File(RAZER_PATH);
+        File Uplay=new File(UPLAY_PATH);
         /*This gets the message inputed on your channel to a variable*/
         String message=event.getMessage().getContentRaw();
 
@@ -66,7 +83,7 @@ public class FileEvent extends ListenerAdapter {
         String paidMsg="Thanks for using "+event.getGuild().getName()+"'s premium services "+event.getAuthor().getName()+". Contact Staff if this account is not working.";
 
         errorMsg.setColor(Color.RED);
-        errorMsg.setTitle("⚔ Error ⚔");
+        errorMsg.setTitle("🔴 Error");
         errorMsg.setDescription(event.getAuthor().getAsMention()+" You cannot generate that here or you do not have the required permissions");
         errorMsg.setFooter("If you think this should not have happened please contact the staff");
 
@@ -78,10 +95,11 @@ public class FileEvent extends ListenerAdapter {
         sorry.setTitle("So Sorry");
         sorry.setDescription(event.getAuthor().getAsTag()+", The account you are looking for is currently not avilabe with us.\nTo know more please check the stocks on our server");
         sorry.setFooter("If you think this should not have happened, please contact the staff");
-/************************************************````````````PAID````````````*********************************************/
+
+        /************************************************````````````PAID````````````*********************************************/
 
         /***For Mail **/  /*Paid*/
-        if (message.equalsIgnoreCase("!mail"))/*Then Why The Fuck Is It Not Working Here?*/  {
+        if (message.equalsIgnoreCase("!mail")) {
             Scanner ss = null;
             if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
             try {
@@ -89,7 +107,7 @@ public class FileEvent extends ListenerAdapter {
                 String data_mail = ss.nextLine().trim();
 
                 mail.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
-                mail.setThumbnail("https://www.salesforce.com/content/dam/blogs/ca/Blog%20Posts/digital-direct-mail-og.png");
+                mail.setThumbnail("https://positivecoach.org/media/521921/email.gif");
                 mail.setColor(Color.RED);
                 mail.addField("Full Access Mail Account ", data_mail, true);
                 mail.setFooter(paidMsg,event.getGuild().getIconUrl());
@@ -124,7 +142,7 @@ public class FileEvent extends ListenerAdapter {
                         // if (!event.getAuthor().isBot()) {
                         cr.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
                         cr.setTitle("Try using this account here ", "https://www.crunchyroll.com/login");
-                        cr.setThumbnail("https://i.ytimg.com/vi/p-R_S6m3eYk/maxresdefault.jpg");
+                        cr.setThumbnail("https://cdn.dribbble.com/users/1818304/screenshots/6240772/dribbble.gif");
                         cr.setColor(0xff9a3b);
                         cr.addField("Crunchy Role", data_cr, true);
                         cr.setFooter(paidMsg,event.getGuild().getIconUrl());
@@ -157,7 +175,7 @@ public class FileEvent extends ListenerAdapter {
                     //event.getChannel().sendMessage("here you go \n"+data).queue();
                     dominos.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
                     dominos.setTitle("Try using this account here ", "https://www.dominos.com/en/");
-                    dominos.setThumbnail("https://1000logos.net/wp-content/uploads/2017/08/Domino%E2%80%99s-symbol.jpg");
+                    dominos.setThumbnail("https://media.tenor.com/images/9b023c80a27d768c72f64b48ef854b9f/tenor.gif");
                     dominos.setColor(0xFF0000);
                     dominos.addField("Domino's Account",data_dominos, true);
                     dominos.setFooter(paidMsg,event.getGuild().getIconUrl());
@@ -193,7 +211,7 @@ public class FileEvent extends ListenerAdapter {
                     //event.getChannel().sendMessage("here you go \n"+data).queue();
                     psn.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
                     psn.setTitle("Try using this account here ", "https://auth.api.sonyentertainmentnetwork.com/login.jsp?service_entity=psn&request_theme=liquid");
-                    psn.setThumbnail("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3-www.playstationlifestyle.net%2Fassets%2Fuploads%2F2019%2F04%2Fplaystation-network-listing-thumb-03-en-24oct18_1540473503370_960x540.png&f=1&nofb=1");
+                    psn.setThumbnail("https://thumbs.gfycat.com/HardPiercingEastrussiancoursinghounds-max-1mb.gif");
                     psn.setColor(Color.BLUE);
                     psn.addField("PSN Account",data_psn, true);
                     psn.setFooter(paidMsg,event.getGuild().getIconUrl());
@@ -263,7 +281,7 @@ public class FileEvent extends ListenerAdapter {
 
                     minecraft.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
                     minecraft.setTitle("Try using this account here ", "https://my.minecraft.net/en-us/login/");
-                    minecraft.setThumbnail("http://minecrafterhelp.weebly.com/uploads/1/2/0/4/12046836/2170468_orig.png?151");
+                    minecraft.setThumbnail("https://4.bp.blogspot.com/-7BcY3Lh0gng/UBBePooBAPI/AAAAAAAAAxw/WqRdaCCkbiM/s1600/minecraft+band.gif");
                     minecraft.setColor(Color.green);
                     minecraft.addField("Minecraft Account",data_minecraft, true);
                     minecraft.setFooter(paidMsg,event.getGuild().getIconUrl());
@@ -287,6 +305,106 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
+        /***For Napster **/  /*Paid*/
+        if (message.equalsIgnoreCase("!napster"))  {
+            Scanner ss = null;
+            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+                try {
+                    ss = new Scanner(Napster);
+                    String data_napster = ss.nextLine().trim();
+
+                    napster.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    napster.setThumbnail("https://66.media.tumblr.com/0d0997ac9e1e7962a75ce86bc8f77f01/tumblr_nwt7b22bGc1snv52fo1_500.gif");
+                    napster.setTitle("Try it here","https://app.napster.com/login/?goto=/&c=us&l=en");
+                    napster.setColor(Color.BLACK);
+                    napster.addField("Napster Account", data_napster, true);
+                    napster.setFooter(paidMsg,event.getGuild().getIconUrl());
+
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(napster.build())).queue();
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(NAPSTER_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
+        /***For Vyvr-Vpn **/  /*Paid*/
+        if (message.equalsIgnoreCase("!vyvr"))  {
+            Scanner ss = null;
+            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+                try {
+                    ss = new Scanner(Vyvr);
+                    String data_vyvr = ss.nextLine().trim();
+
+                    vyvr.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    vyvr.setThumbnail("https://freedomhacker.net/wp-content/uploads/2013/09/Interview-with-VyprVPN.jpg");
+                    vyvr.setTitle("Try it here","https://www.vyprvpn.com/login");
+                    vyvr.setColor(0xfff200);
+                    vyvr.addField("Vyvr Vpn", data_vyvr, true);
+                    vyvr.setFooter(paidMsg,event.getGuild().getIconUrl());
+
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(vyvr.build())).queue();
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(VYVR_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
+        /***For Uplay **/  /*Paid*/
+        if (message.equalsIgnoreCase("!uplay"))  {
+            Scanner ss = null;
+            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+                try {
+                    ss = new Scanner(Uplay);
+                    String data_uplay = ss.nextLine().trim();
+
+                    uplay.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    uplay.setThumbnail("https://thumbs.gfycat.com/PlaintiveGloomyFieldspaniel-size_restricted.gif");
+                    uplay.setTitle("Try it here","https://lb-prod-accountmgmt-pdc.ubisoft.com/en-US/login");
+                    uplay.setColor(0x039dfc);
+                    uplay.addField("Uplay Account", data_uplay, true);
+                    uplay.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(uplay.build())).queue();
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(UPLAY_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
 /************************************************````````````FREE````````````*********************************************/
 
         /***For NordVpn **/  /*Free*/
@@ -358,7 +476,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        //***For Origin **//*  *//*Free*//*
+        /***For Origin **/ /*Free*/
         if (message.equalsIgnoreCase("!origin")) {
             Scanner ss = null;
             if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")){
@@ -394,7 +512,72 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
+        /***For Razer **/  /*Free*/
+        if (message.equalsIgnoreCase("!razer")) {
+            Scanner sn = null;
+            if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")) {
+
+                try {
+                    sn = new Scanner(Razer);
+                    String data_razer = sn.nextLine().trim();
+
+
+                    razer.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    razer.setTitle("Try using this account here ", "https://razerid.razer.com/");
+                    razer.setThumbnail("https://linustechtips.com/main/uploads/monthly_2017_08/razer_loop.gif.889f887d89a62a5d0641b00a6702854b.gif");
+                    razer.setColor(0x53ff30);
+                    razer.addField("Razer Account: ", data_razer, true);
+                    razer.setFooter(freeMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(razer.build())).queue();
+                    sn.close();
+
+                    FileDelete.delete(RAZER_PATH);
+                } catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
+        /***For Zenmate **/  /*Free*/
+        if (message.equalsIgnoreCase("!zenmate")) {
+            Scanner sn = null;
+            if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")) {
+
+                try {
+                    sn = new Scanner(Zenmate);
+                    String data_zenmate = sn.nextLine().trim();
+
+
+                    zenmate.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    zenmate.setTitle("Try using this account here ", "https://account.zenmate.com/login");
+                    zenmate.setThumbnail("https://tenor.com/view/steam-gif-5833555");
+                    zenmate.setColor(0x6effec);
+                    zenmate.addField("ZENMATE  VPN Account: ", data_zenmate, true);
+                    zenmate.setFooter(freeMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(zenmate.build())).queue();
+                    sn.close();
+
+                    FileDelete.delete(ZENMATE_PATH);
+                } catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
 
     }
 }
-//java.util.NoSuchElementException: No line found
