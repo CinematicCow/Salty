@@ -101,7 +101,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Mail **/  /*Paid*/
         if (message.equalsIgnoreCase("!mail")) {
             Scanner ss = null;
-            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
             try {
                 ss = new Scanner(Mail);
                 String data_mail = ss.nextLine().trim();
@@ -134,7 +134,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Crunchy Role **/   /*Paid*/
             if(message.equalsIgnoreCase("!crunchy")) {
                 Scanner sm = null;
-                if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+                if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
                     try {
                         sm = new Scanner(Cr);
                         String data_cr = sm.nextLine().trim();
@@ -166,7 +166,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Dominoz **/  /*Paid*/
         if (message.equalsIgnoreCase("!dominos")) {
             Scanner ss = null;
-            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Dominos);
                     String data_dominos = ss.nextLine().trim();
@@ -202,7 +202,7 @@ public class FileEvent extends ListenerAdapter {
         /***For PSN **/  /*Paid*/
         if (message.equalsIgnoreCase("!psn")) {
             Scanner ss = null;
-            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Psn);
                     String data_psn = ss.nextLine().trim();
@@ -238,7 +238,7 @@ public class FileEvent extends ListenerAdapter {
         /***For IP-Vanish **/  /*Paid*/
         if (message.equalsIgnoreCase("!ipvanish")) {
             Scanner ss = null;
-            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Ipvanish);
                     String data_ipvanish = ss.nextLine().trim();
@@ -274,7 +274,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Minecraft **/  /*Paid*/
         if (message.equalsIgnoreCase("!minecraft")) {
             Scanner ss = null;
-            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Minecraft);
                     String data_minecraft = ss.nextLine().trim();
@@ -308,7 +308,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Napster **/  /*Paid*/
         if (message.equalsIgnoreCase("!napster"))  {
             Scanner ss = null;
-            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Napster);
                     String data_napster = ss.nextLine().trim();
@@ -342,7 +342,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Vyvr-Vpn **/  /*Paid*/
         if (message.equalsIgnoreCase("!vyvr"))  {
             Scanner ss = null;
-            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Vyvr);
                     String data_vyvr = ss.nextLine().trim();
@@ -376,7 +376,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Uplay **/  /*Paid*/
         if (message.equalsIgnoreCase("!uplay"))  {
             Scanner ss = null;
-            if(channel_id.equals("701870798088044665")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Uplay);
                     String data_uplay = ss.nextLine().trim();
@@ -410,7 +410,7 @@ public class FileEvent extends ListenerAdapter {
         /***For NordVpn **/  /*Free*/
         if (message.equalsIgnoreCase("!nord")) {
             Scanner sn = null;
-            if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")) {
+            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")) {
 
                 try {
                     sn = new Scanner(Nord);
@@ -443,7 +443,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Hulu **/  /*Free*/
         if (message.equalsIgnoreCase("!hulu")) {
             Scanner ss = null;
-            if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Hulu);
                     String data_hulu = ss.nextLine().trim();
@@ -479,7 +479,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Origin **/ /*Free*/
         if (message.equalsIgnoreCase("!origin")) {
             Scanner ss = null;
-            if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")){
                 try {
                     ss = new Scanner(Origin);
                     String data_origin = ss.nextLine().trim();
@@ -515,7 +515,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Razer **/  /*Free*/
         if (message.equalsIgnoreCase("!razer")) {
             Scanner sn = null;
-            if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")) {
+            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")) {
 
                 try {
                     sn = new Scanner(Razer);
@@ -548,7 +548,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Zenmate **/  /*Free*/
         if (message.equalsIgnoreCase("!zenmate")) {
             Scanner sn = null;
-            if(channel_id.equals("702137079798431744")||channel_id.equals("676627317669494785")) {
+            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")) {
 
                 try {
                     sn = new Scanner(Zenmate);

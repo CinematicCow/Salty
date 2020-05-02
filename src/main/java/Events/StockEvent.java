@@ -70,8 +70,8 @@ public class StockEvent extends Command {
             e.printStackTrace();
         } finally {
 
-           List<Message> messages = event.getJDA().getTextChannelById("702601231398600865").getHistory().retrievePast(2).complete();
-           event.getJDA().getTextChannelById("702601231398600865").deleteMessages(messages).queue();
+           List<Message> messages = event.getJDA().getTextChannelById("706204277521252373").getHistory().retrievePast(2).complete();
+           event.getJDA().getTextChannelById("706204277521252373").deleteMessages(messages).queue();
            /*Embeded Builder for Stock Display*/
            EmbedBuilder builder = new EmbedBuilder();
            builder.setAuthor( event.getGuild().getName() , "https://discord.gg/WcDpNQB");
@@ -95,7 +95,7 @@ public class StockEvent extends Command {
            builder.addField("**"+name[11]+"** Accounts" +": ", stock[11], true);
            builder.addField("**"+name[12]+"** Accounts" +": ", stock[12], true);
            builder.addField("**"+name[13]+"** Accounts" +": ", stock[13], true);
-           event.getJDA().getTextChannelById("702601231398600865").sendMessage(builder.build()).queue();
+           event.getJDA().getTextChannelById("706204277521252373").sendMessage(builder.build()).queue();
 
                }
         }
