@@ -33,6 +33,9 @@ public class HelpGen extends Command {
         builder.addField("Uplay","!uplay", true);
         builder.addField("Vyvr-Vpn","!vyvr", true);
         builder.addField("Napster","!napster", true);
+        builder.addField("Instant-Gaming","!instant", true);
+        builder.addField("HBO","!hbo", true);
+        builder.addField("Buffalo Wings","!buffalo", true);
         builder.setFooter("You can only generate accounts in their respective channels, or you will get an error, i.e to generate free accounts, you go to the free-generator and visa versa.");
         event.getChannel().sendMessage("It's simple to generate accounts. All you gotta do is go to the **Stocks Channel** and see the available accounts. \nThen go to the respective generator").queue();
         event.getChannel().sendMessage(builder.build()).queue();
