@@ -35,6 +35,9 @@ public class FileEvent extends ListenerAdapter {
         EmbedBuilder vyvr=new EmbedBuilder();
         EmbedBuilder zenmate=new EmbedBuilder();
         EmbedBuilder uplay=new EmbedBuilder();
+        EmbedBuilder buffalo=new EmbedBuilder();
+        EmbedBuilder hbo=new EmbedBuilder();
+        EmbedBuilder instant=new EmbedBuilder();
         EmbedBuilder errorMsg= new EmbedBuilder();
         EmbedBuilder sent= new EmbedBuilder();
         EmbedBuilder sorry =new EmbedBuilder();
@@ -55,6 +58,9 @@ public class FileEvent extends ListenerAdapter {
         String ZENMATE_PATH=     "Accounts/Zenmate.txt";
         String VYVR_PATH=     "Accounts/Vyvr-Vpn.txt";
         String UPLAY_PATH=    "Accounts/Uplay.txt";
+        String BUFFALO_PATH=    "Accounts/Buffalowings.txt";
+        String HBO_PATH=    "Accounts/HBO.txt";
+        String INSTANT_PATH=    "Accounts/Instant-gaming.txt";
 
 
         /*All the file objects are here*/
@@ -72,6 +78,9 @@ public class FileEvent extends ListenerAdapter {
         File Zenmate=new File(ZENMATE_PATH);
         File Razer=new File(RAZER_PATH);
         File Uplay=new File(UPLAY_PATH);
+        File Buffalo=new File(BUFFALO_PATH);
+        File Hbo=new File(HBO_PATH);
+        File Instant=new File(INSTANT_PATH);
         /*This gets the message inputed on your channel to a variable*/
         String message=event.getMessage().getContentRaw();
 
@@ -101,7 +110,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Mail **/  /*Paid*/
         if (message.equalsIgnoreCase("!mail")) {
             Scanner ss = null;
-            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
             try {
                 ss = new Scanner(Mail);
                 String data_mail = ss.nextLine().trim();
@@ -134,7 +143,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Crunchy Role **/   /*Paid*/
             if(message.equalsIgnoreCase("!crunchy")) {
                 Scanner sm = null;
-                if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+                if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                     try {
                         sm = new Scanner(Cr);
                         String data_cr = sm.nextLine().trim();
@@ -166,7 +175,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Dominoz **/  /*Paid*/
         if (message.equalsIgnoreCase("!dominos")) {
             Scanner ss = null;
-            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Dominos);
                     String data_dominos = ss.nextLine().trim();
@@ -202,7 +211,7 @@ public class FileEvent extends ListenerAdapter {
         /***For PSN **/  /*Paid*/
         if (message.equalsIgnoreCase("!psn")) {
             Scanner ss = null;
-            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Psn);
                     String data_psn = ss.nextLine().trim();
@@ -238,7 +247,7 @@ public class FileEvent extends ListenerAdapter {
         /***For IP-Vanish **/  /*Paid*/
         if (message.equalsIgnoreCase("!ipvanish")) {
             Scanner ss = null;
-            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Ipvanish);
                     String data_ipvanish = ss.nextLine().trim();
@@ -274,7 +283,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Minecraft **/  /*Paid*/
         if (message.equalsIgnoreCase("!minecraft")) {
             Scanner ss = null;
-            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Minecraft);
                     String data_minecraft = ss.nextLine().trim();
@@ -308,7 +317,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Napster **/  /*Paid*/
         if (message.equalsIgnoreCase("!napster"))  {
             Scanner ss = null;
-            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Napster);
                     String data_napster = ss.nextLine().trim();
@@ -342,7 +351,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Vyvr-Vpn **/  /*Paid*/
         if (message.equalsIgnoreCase("!vyvr"))  {
             Scanner ss = null;
-            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Vyvr);
                     String data_vyvr = ss.nextLine().trim();
@@ -376,7 +385,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Uplay **/  /*Paid*/
         if (message.equalsIgnoreCase("!uplay"))  {
             Scanner ss = null;
-            if(channel_id.equals("706204225603895449")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Uplay);
                     String data_uplay = ss.nextLine().trim();
@@ -405,12 +414,111 @@ public class FileEvent extends ListenerAdapter {
                 event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
+
+        /***For Buffalo wings **/  /*Paid*/
+        if (message.equalsIgnoreCase("!buffalo"))  {
+            Scanner ss = null;
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
+                try {
+                    ss = new Scanner(Buffalo);
+                    String data_buffalo = ss.nextLine().trim();
+
+                    buffalo.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    buffalo.setThumbnail("https://mms.businesswire.com/media/20180829005405/en/675463/23/Buffalo-Wild-Wings-Logo.jpg");
+                    buffalo.setTitle("Try it here","https://www.buffalowildwings.com/en/account/log-in/");
+                    buffalo.setColor(0x8B4513);
+                    buffalo.addField("Buffalo Wild Wings", data_buffalo, true);
+                    buffalo.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(buffalo.build())).queue();
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(BUFFALO_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
+        /***For Hbo **/  /*Paid*/
+        if (message.equalsIgnoreCase("!hbo"))  {
+            Scanner ss = null;
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
+                try {
+                    ss = new Scanner(Hbo);
+                    String data_hbo = ss.nextLine().trim();
+
+                    hbo.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    hbo.setThumbnail("https://66.media.tumblr.com/681efcdb57d24c395b880e85e86e46bc/tumblr_my4jzimHkB1qznlbio1_400.gif");
+                    //uplay.setTitle("Try it here","https://www.buffalowildwings.com/en/account/log-in/");
+                    hbo.setColor(0x808080);
+                    hbo.addField("HBO account ", data_hbo, true);
+                    hbo.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(hbo.build())).queue();
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(HBO_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
+        /***For Instant gaming **/  /*Paid*/
+        if (message.equalsIgnoreCase("!instant"))  {
+            Scanner ss = null;
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
+                try {
+                    ss = new Scanner(Instant);
+                    String data_instant = ss.nextLine().trim();
+
+                    instant.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    instant.setThumbnail("https://i.ytimg.com/vi/gCNB1GTTQsc/hqdefault.jpg");
+                    instant.setTitle("Try it here","https://www.instant-gaming.com/en/");
+                    instant.setColor(0xff944d);
+                    instant.addField("Instant Gaming  account ", data_instant, true);
+                    instant.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(instant.build())).queue();
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(INSTANT_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
 /************************************************````````````FREE````````````*********************************************/
 
         /***For NordVpn **/  /*Free*/
         if (message.equalsIgnoreCase("!nord")) {
             Scanner sn = null;
-            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")) {
+            if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
 
                 try {
                     sn = new Scanner(Nord);
@@ -443,7 +551,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Hulu **/  /*Free*/
         if (message.equalsIgnoreCase("!hulu")) {
             Scanner ss = null;
-            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Hulu);
                     String data_hulu = ss.nextLine().trim();
@@ -479,7 +587,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Origin **/ /*Free*/
         if (message.equalsIgnoreCase("!origin")) {
             Scanner ss = null;
-            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")){
+            if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")){
                 try {
                     ss = new Scanner(Origin);
                     String data_origin = ss.nextLine().trim();
@@ -515,7 +623,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Razer **/  /*Free*/
         if (message.equalsIgnoreCase("!razer")) {
             Scanner sn = null;
-            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")) {
+            if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
 
                 try {
                     sn = new Scanner(Razer);
@@ -548,7 +656,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Zenmate **/  /*Free*/
         if (message.equalsIgnoreCase("!zenmate")) {
             Scanner sn = null;
-            if(channel_id.equals("706204133316624404")||channel_id.equals("676627317669494785")) {
+            if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
 
                 try {
                     sn = new Scanner(Zenmate);
