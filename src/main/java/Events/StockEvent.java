@@ -28,16 +28,17 @@ public class StockEvent extends Command {
     public void execute(CommandEvent event) {
 
         /*String Arrays || Datatables*/
-            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Razer", "Zenmate","Full Access Mail", "Crunchy Role", "Domino's", "Psn",  "Ip-vanish", "Minecraft","Uplay","Vyvr-Vpn", "Napster","Buffalo Wings","Instant Gaming","HBO"};
+            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Razer", "Zenmate","Tunnel-Bear","Viaplay.se","Full Access Mail", "Crunchy Role", "Psn",  "Ip-vanish", "Minecraft","Uplay","Vyvr-Vpn", "Napster","Buffalo Wings","Instant Gaming","HBO","Wish","Steam"};
             String[] path = {
                              "Accounts/Nord.txt",
                              "Accounts/Hulu.txt",
                              "Accounts/Origin.txt",
                              "Accounts/Razor.txt",
                              "Accounts/Zenmate.txt",
+                             "Accounts/Tunnelbear.txt",
+                             "Accounts/Viaplay.txt",
                              "Accounts/FullAccess.txt",
                              "Accounts/CrunchyRole.txt",
-                             "Accounts/Dominos.txt",
                              "Accounts/Psn.txt",
                              "Accounts/IPvanish.txt",
                              "Accounts/Minecraft.txt",
@@ -46,10 +47,12 @@ public class StockEvent extends Command {
                              "Accounts/Napster.txt",
                              "Accounts/Buffalowings.txt",
                              "Accounts/Instant-gaming.txt",
-                             "Accounts/HBO.txt"
+                             "Accounts/HBO.txt",
+                             "Accounts/Wish.txt",
+                             "Accounts/Steam.txt"
 
             };
-             String[] stock = {null, null, null, null, null, null, null, null,null, null, null, null, null,null,null,null,null};
+             String[] stock = {null, null, null, null, null, null, null, null,null, null, null, null, null,null,null,null,null,null,null,null};
     
        
        try {
@@ -70,6 +73,10 @@ public class StockEvent extends Command {
             stock[14] = Integer.toString(StockExtension.stock(path[14]));
             stock[15] = Integer.toString(StockExtension.stock(path[15]));
             stock[16] = Integer.toString(StockExtension.stock(path[16]));
+            stock[17] = Integer.toString(StockExtension.stock(path[17]));
+            stock[18] = Integer.toString(StockExtension.stock(path[18]));
+            stock[19] = Integer.toString(StockExtension.stock(path[19]));
+
 
 
         } catch (IOException e) {
@@ -90,10 +97,10 @@ public class StockEvent extends Command {
            builder.addField("**"+name[1]+"** Accounts" +": ", stock[1], true);
            builder.addField("**"+name[2]+"** Accounts" +": ", stock[2], true);
            builder.addField("**"+name[3]+"** Accounts" +": ", stock[3], true);
-           builder.addField("**"+name[4]+"** Accounts" +": ", stock[4], true);
-           builder.addField("","```                Premium Accounts ```",false);
-           builder.addField("**"+name[5]+"** Accounts" +": ", stock[5], true);
+           builder.addField("**"+name[5]+"** Accounts" +": ", stock[4], true);
+           builder.addField("**"+name[4]+"** Accounts" +": ", stock[5], true);
            builder.addField("**"+name[6]+"** Accounts" +": ", stock[6], true);
+           builder.addField("","```                Premium Accounts ```",false);
            builder.addField("**"+name[7]+"** Accounts" +": ", stock[7], true);
            builder.addField("**"+name[8]+"** Accounts" +": ", stock[8], true);
            builder.addField("**"+name[9]+"** Accounts" +": ", stock[9], true);
@@ -104,6 +111,9 @@ public class StockEvent extends Command {
            builder.addField("**"+name[14]+"** Accounts" +": ", stock[14], true);
            builder.addField("**"+name[15]+"** Accounts" +": ", stock[15], true);
            builder.addField("**"+name[16]+"** Accounts" +": ", stock[16], true);
+           builder.addField("**"+name[17]+"** Accounts" +": ", stock[17], true);
+           builder.addField("**"+name[18]+"** Accounts" +": ", stock[18], true);
+           builder.addField("**"+name[19]+"** Accounts" +": ", stock[19], true);
            event.getJDA().getTextChannelById("706204277521252373").sendMessage(builder.build()).queue();
 
                }

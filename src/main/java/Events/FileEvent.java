@@ -38,6 +38,10 @@ public class FileEvent extends ListenerAdapter {
         EmbedBuilder buffalo=new EmbedBuilder();
         EmbedBuilder hbo=new EmbedBuilder();
         EmbedBuilder instant=new EmbedBuilder();
+        EmbedBuilder tunnelbear=new EmbedBuilder();
+        EmbedBuilder wish=new EmbedBuilder();
+        EmbedBuilder viaplay=new EmbedBuilder();
+        EmbedBuilder steam=new EmbedBuilder();
         EmbedBuilder errorMsg= new EmbedBuilder();
         EmbedBuilder sent= new EmbedBuilder();
         EmbedBuilder sorry =new EmbedBuilder();
@@ -47,7 +51,7 @@ public class FileEvent extends ListenerAdapter {
         String MAIL_PATH =      "Accounts/FullAccess.txt";
         String CR_PATH =        "Accounts/CrunchyRole.txt";
         String NORD_PATH =      "Accounts/Nord.txt";
-        String DOMINOS_PATH=    "Accounts/Dominos.txt";
+       // String DOMINOS_PATH=    "Accounts/Dominos.txt";
         String HULU_PATH=       "Accounts/Hulu.txt";
         String PSN_PATH=        "Accounts/Psn.txt";
         String IPVANISH_PATH=   "Accounts/IPvanish.txt";
@@ -61,13 +65,17 @@ public class FileEvent extends ListenerAdapter {
         String BUFFALO_PATH=    "Accounts/Buffalowings.txt";
         String HBO_PATH=    "Accounts/HBO.txt";
         String INSTANT_PATH=    "Accounts/Instant-gaming.txt";
+        String TUNNELBEAR_PATH=    "Accounts/Tunnelbear.txt";
+        String WISH_PATH=    "Accounts/Wish.txt";
+        String VIAPLAY_PATH=    "Accounts/Viaplay.txt";
+        String STEAM_PATH=    "Accounts/Steam.txt";
 
 
         /*All the file objects are here*/
         File Cr = new File(CR_PATH);
         File Mail = new File(MAIL_PATH);
         File Nord = new File(NORD_PATH);
-        File Dominos = new File(DOMINOS_PATH);
+        //File Dominos = new File(DOMINOS_PATH);
         File Hulu = new File(HULU_PATH);
         File Psn = new File(PSN_PATH);
         File Origin = new File(ORIGIN_PATH);
@@ -81,6 +89,12 @@ public class FileEvent extends ListenerAdapter {
         File Buffalo=new File(BUFFALO_PATH);
         File Hbo=new File(HBO_PATH);
         File Instant=new File(INSTANT_PATH);
+        File Tunnelbear=new File(TUNNELBEAR_PATH);
+        File Wish=new File(WISH_PATH);
+        File Viaplay=new File(VIAPLAY_PATH);
+        File Steam=new File(STEAM_PATH);
+
+
         /*This gets the message inputed on your channel to a variable*/
         String message=event.getMessage().getContentRaw();
 
@@ -173,7 +187,7 @@ public class FileEvent extends ListenerAdapter {
             }
 
         /***For Dominoz **/  /*Paid*/
-        if (message.equalsIgnoreCase("!dominos")) {
+        /*if (message.equalsIgnoreCase("!dominos")) {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
@@ -206,7 +220,7 @@ public class FileEvent extends ListenerAdapter {
             else{
                 event.getChannel().sendMessage(errorMsg.build()).queue();
             }
-        }
+        }*/
 
         /***For PSN **/  /*Paid*/
         if (message.equalsIgnoreCase("!psn")) {
@@ -513,6 +527,73 @@ public class FileEvent extends ListenerAdapter {
                 event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
+
+        /***For Wish **/  /*Paid*/
+        if (message.equalsIgnoreCase("!wish")) {
+            Scanner ss = null;
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
+                try {
+                    ss = new Scanner(Wish);
+                    String data_wish = ss.nextLine().trim();
+
+                    wish.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    wish.setTitle("Try it here","https://merchant.wish.com/login");
+                    wish.setThumbnail("https://cdn.dribbble.com/users/88429/screenshots/4151215/wish-3x4.gif");
+                    wish.setColor(0x26dde0);
+                    wish.addField("Wish Account ", data_wish, true);
+                    wish.setFooter(paidMsg,event.getGuild().getIconUrl());
+
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(wish.build())).queue();
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(WISH_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
+        /***For Steam **/  /*Paid*/
+        if (message.equalsIgnoreCase("!steam"))  {
+            Scanner ss = null;
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
+                try {
+                    ss = new Scanner(Steam);
+                    String data_steam = ss.nextLine().trim();
+
+                    steam.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    steam.setThumbnail("https://i2.wp.com/windowscustomization.com/wp-content/uploads/2018/11/steam-neon-logo.gif  ");
+                    steam.setTitle("Try it here","https://store.steampowered.com/login/");
+                    steam.setColor(0x5552b3);
+                    steam.addField("Steam account ", data_steam, true);
+                    steam.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(steam.build())).queue();
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(STEAM_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
 /************************************************````````````FREE````````````*********************************************/
 
         /***For NordVpn **/  /*Free*/
@@ -686,6 +767,71 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
+        /***For Tunnelbear **/  /*Free*/
+        if (message.equalsIgnoreCase("!tunnel")) {
+            Scanner sn = null;
+            if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
+
+                try {
+                    sn = new Scanner(Tunnelbear);
+                    String data_tunnel = sn.nextLine().trim();
+
+
+                    tunnelbear.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    tunnelbear.setTitle("Try using this account here ", "https://www.tunnelbear.com/account/login");
+                    tunnelbear.setThumbnail("https://venturebeat.com/wp-content/uploads/2018/04/yummy-logins-ee5ddb3.gif");
+                    tunnelbear.setColor(Color.yellow);
+                    tunnelbear.addField("Tunnel Bear Vpn  Account: ", data_tunnel, true);
+                    tunnelbear.setFooter(freeMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(tunnelbear.build())).queue();
+                    sn.close();
+
+                    FileDelete.delete(TUNNELBEAR_PATH);
+                } catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
+        /***For viaplay **/  /*Free*/
+        if (message.equalsIgnoreCase("!viaplay")) {
+            Scanner sn = null;
+            if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
+
+                try {
+                    sn = new Scanner(Viaplay);
+                    String data_viaplay= sn.nextLine().trim();
+
+
+                    viaplay.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    viaplay.setTitle("Try using this account here ", "https://account.zenmate.com/login");
+                    viaplay.setThumbnail("https://pro2-bar-s3-cdn-cf2.myportfolio.com/98ad8927-039f-4a76-a8a7-d2ede54bbafc/d1448ca9-1ca1-49b4-85c3-802f4e80ad3b_car_4x3.gif");
+                    viaplay.setColor(Color.magenta);
+                    viaplay.addField("Viaplay.se Account: ", data_viaplay, true);
+                    viaplay.setFooter(freeMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(viaplay.build())).queue();
+                    sn.close();
+
+                    FileDelete.delete(VIAPLAY_PATH);
+                } catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
 
     }
 }

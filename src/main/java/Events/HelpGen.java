@@ -23,10 +23,11 @@ public class HelpGen extends Command {
         builder.addField("Origin","!origin", true);
         builder.addField("Zenmate-Vpn","!zenmate", true);
         builder.addField("Razer","!razer", true);
+        builder.addField("ViaPlay.se","!viaplay", true);
+        builder.addField("Tunnel Bear Vpn","!tunnel", true);
         builder.addField("","---Premium Accounts---",  false);
         builder.addField("IP-Vanish","!ipvanish", true);
         builder.addField("Minecraft","!minecraft", true);
-        builder.addField("Domino's","!dominos", true);
         builder.addField("Full Access Mail","!mail", true);
         builder.addField("PSN","!psn", true);
         builder.addField("Crunchy Role","!crunchy", true);
@@ -36,6 +37,8 @@ public class HelpGen extends Command {
         builder.addField("Instant-Gaming","!instant", true);
         builder.addField("HBO","!hbo", true);
         builder.addField("Buffalo Wings","!buffalo", true);
+        builder.addField("Steam","!steam", true);
+        builder.addField("Wish","!wish", true);
         builder.setFooter("You can only generate accounts in their respective channels, or you will get an error, i.e to generate free accounts, you go to the free-generator and visa versa.");
         event.getChannel().sendMessage("It's simple to generate accounts. All you gotta do is go to the **Stocks Channel** and see the available accounts. \nThen go to the respective generator").queue();
         event.getChannel().sendMessage(builder.build()).queue();
