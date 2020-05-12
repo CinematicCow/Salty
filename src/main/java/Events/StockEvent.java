@@ -28,7 +28,7 @@ public class StockEvent extends Command {
     public void execute(CommandEvent event) {
 
         /*String Arrays || Datatables*/
-            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Razer", "Zenmate","Tunnel-Bear","Viaplay.se","Full Access Mail", "Crunchy Role", "Psn",  "Ip-vanish", "Minecraft","Uplay","Vyvr-Vpn", "Napster","Buffalo Wings","Instant Gaming","HBO","Wish","Steam"};
+            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Razer", "Zenmate","Tunnel-Bear","Viaplay.se","Full Access Mail", "Crunchy Role", "Psn",  "Ip-vanish", "Minecraft","Uplay","Vyvr-Vpn", "Napster","Buffalo Wings","Instant Gaming","HBO","Wish","Steam","Adidas","Twitter"};
             String[] path = {
                              "Accounts/Nord.txt",
                              "Accounts/Hulu.txt",
@@ -49,10 +49,12 @@ public class StockEvent extends Command {
                              "Accounts/Instant-gaming.txt",
                              "Accounts/HBO.txt",
                              "Accounts/Wish.txt",
-                             "Accounts/Steam.txt"
+                             "Accounts/Steam.txt",
+                             "Accounts/Adidas.txt",
+                             "Accounts/Twitter.txt"
 
             };
-             String[] stock = {null, null, null, null, null, null, null, null,null, null, null, null, null,null,null,null,null,null,null,null};
+             String[] stock = {null,null,null, null, null, null, null, null, null, null,null, null, null, null, null,null,null,null,null,null,null,null};
     
        
        try {
@@ -76,6 +78,8 @@ public class StockEvent extends Command {
             stock[17] = Integer.toString(StockExtension.stock(path[17]));
             stock[18] = Integer.toString(StockExtension.stock(path[18]));
             stock[19] = Integer.toString(StockExtension.stock(path[19]));
+            stock[20] = Integer.toString(StockExtension.stock(path[20]));
+            stock[21] = Integer.toString(StockExtension.stock(path[21]));
 
 
 
@@ -97,8 +101,8 @@ public class StockEvent extends Command {
            builder.addField("**"+name[1]+"** Accounts" +": ", stock[1], true);
            builder.addField("**"+name[2]+"** Accounts" +": ", stock[2], true);
            builder.addField("**"+name[3]+"** Accounts" +": ", stock[3], true);
-           builder.addField("**"+name[5]+"** Accounts" +": ", stock[4], true);
-           builder.addField("**"+name[4]+"** Accounts" +": ", stock[5], true);
+           builder.addField("**"+name[4]+"** Accounts" +": ", stock[4], true);
+           builder.addField("**"+name[5]+"** Accounts" +": ", stock[5], true);
            builder.addField("**"+name[6]+"** Accounts" +": ", stock[6], true);
            builder.addField("","```                Premium Accounts ```",false);
            builder.addField("**"+name[7]+"** Accounts" +": ", stock[7], true);
@@ -114,6 +118,8 @@ public class StockEvent extends Command {
            builder.addField("**"+name[17]+"** Accounts" +": ", stock[17], true);
            builder.addField("**"+name[18]+"** Accounts" +": ", stock[18], true);
            builder.addField("**"+name[19]+"** Accounts" +": ", stock[19], true);
+           builder.addField("**"+name[20]+"** Accounts" +": ", stock[20], true);
+           builder.addField("**"+name[21]+"** Accounts" +": ", stock[21], true);
            event.getJDA().getTextChannelById("706204277521252373").sendMessage(builder.build()).queue();
 
                }

@@ -24,7 +24,6 @@ public class FileEvent extends ListenerAdapter {
         EmbedBuilder mail = new EmbedBuilder();
         EmbedBuilder cr = new EmbedBuilder();
         EmbedBuilder nord = new EmbedBuilder();
-        EmbedBuilder dominos = new EmbedBuilder();
         EmbedBuilder hulu = new EmbedBuilder();
         EmbedBuilder psn = new EmbedBuilder();
         EmbedBuilder origin = new EmbedBuilder();
@@ -42,6 +41,8 @@ public class FileEvent extends ListenerAdapter {
         EmbedBuilder wish=new EmbedBuilder();
         EmbedBuilder viaplay=new EmbedBuilder();
         EmbedBuilder steam=new EmbedBuilder();
+        EmbedBuilder adidas=new EmbedBuilder();
+        EmbedBuilder twitter=new EmbedBuilder();
         EmbedBuilder errorMsg= new EmbedBuilder();
         EmbedBuilder sent= new EmbedBuilder();
         EmbedBuilder sorry =new EmbedBuilder();
@@ -51,7 +52,7 @@ public class FileEvent extends ListenerAdapter {
         String MAIL_PATH =      "Accounts/FullAccess.txt";
         String CR_PATH =        "Accounts/CrunchyRole.txt";
         String NORD_PATH =      "Accounts/Nord.txt";
-       // String DOMINOS_PATH=    "Accounts/Dominos.txt";
+        String TWITTER_PATH=    "Accounts/Twitter.txt";
         String HULU_PATH=       "Accounts/Hulu.txt";
         String PSN_PATH=        "Accounts/Psn.txt";
         String IPVANISH_PATH=   "Accounts/IPvanish.txt";
@@ -69,6 +70,7 @@ public class FileEvent extends ListenerAdapter {
         String WISH_PATH=    "Accounts/Wish.txt";
         String VIAPLAY_PATH=    "Accounts/Viaplay.txt";
         String STEAM_PATH=    "Accounts/Steam.txt";
+        String ADIDAS_PATH=    "Accounts/Adidas.txt";
 
 
         /*All the file objects are here*/
@@ -93,6 +95,8 @@ public class FileEvent extends ListenerAdapter {
         File Wish=new File(WISH_PATH);
         File Viaplay=new File(VIAPLAY_PATH);
         File Steam=new File(STEAM_PATH);
+        File Twitter=new File(TWITTER_PATH);
+        File Adidas=new File(ADIDAS_PATH);
 
 
         /*This gets the message inputed on your channel to a variable*/
@@ -121,7 +125,7 @@ public class FileEvent extends ListenerAdapter {
 
         /************************************************````````````PAID````````````*********************************************/
 
-        /***For Mail **/  /*Paid*/
+       /***For Mail **/
         if (message.equalsIgnoreCase("!mail")) {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -154,7 +158,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Crunchy Role **/   /*Paid*/
+        /***For Crunchy Role **//*   *//*Paid*//*
             if(message.equalsIgnoreCase("!crunchy")) {
                 Scanner sm = null;
                 if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -185,31 +189,32 @@ public class FileEvent extends ListenerAdapter {
                     event.getChannel().sendMessage(errorMsg.build()).queue();
                 }
             }
+*/
 
-        /***For Dominoz **/  /*Paid*/
-        /*if (message.equalsIgnoreCase("!dominos")) {
+        /***For Adidas **/  /*Paid*/
+        if (message.equalsIgnoreCase("!adidas")) {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
                 try {
-                    ss = new Scanner(Dominos);
-                    String data_dominos = ss.nextLine().trim();
+                    ss = new Scanner(Adidas);
+                    String data_adidas = ss.nextLine().trim();
 
                     // if (!event.getAuthor().isBot()) {
                     //event.getChannel().sendMessage("here you go \n"+data).queue();
-                    dominos.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
-                    dominos.setTitle("Try using this account here ", "https://www.dominos.com/en/");
-                    dominos.setThumbnail("https://media.tenor.com/images/9b023c80a27d768c72f64b48ef854b9f/tenor.gif");
-                    dominos.setColor(0xFF0000);
-                    dominos.addField("Domino's Account",data_dominos, true);
-                    dominos.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    adidas.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    adidas.setTitle("Try using this account here ", "https://www.adidas.com/us/account-login");
+                    adidas.setThumbnail("https://cdn.dribbble.com/users/392441/screenshots/2606850/adidas.gif");
+                    adidas.setColor(Color.BLACK);
+                    adidas.addField("Adidas Account",data_adidas, true);
+                    adidas.setFooter(paidMsg,event.getGuild().getIconUrl());
                     event.getChannel().sendMessage(sent.build()).queue();
-                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(dominos.build())).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(adidas.build())).queue();
 
 
                     //System.out.println(data);
                     ss.close();
                     // }
-                    FileDelete.delete(DOMINOS_PATH);
+                    FileDelete.delete(ADIDAS_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
                         event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
@@ -220,9 +225,9 @@ public class FileEvent extends ListenerAdapter {
             else{
                 event.getChannel().sendMessage(errorMsg.build()).queue();
             }
-        }*/
+        }
 
-        /***For PSN **/  /*Paid*/
+        /***For PSN **/
         if (message.equalsIgnoreCase("!psn")) {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -258,7 +263,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For IP-Vanish **/  /*Paid*/
+        /***For IP-Vanish **/
         if (message.equalsIgnoreCase("!ipvanish")) {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -294,7 +299,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Minecraft **/  /*Paid*/
+        /***For Minecraft **/
         if (message.equalsIgnoreCase("!minecraft")) {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -328,7 +333,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Napster **/  /*Paid*/
+        /***For Napster **/
         if (message.equalsIgnoreCase("!napster"))  {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -362,7 +367,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Vyvr-Vpn **/  /*Paid*/
+        /***For Vyvr-Vpn **/
         if (message.equalsIgnoreCase("!vyvr"))  {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -396,7 +401,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Uplay **/  /*Paid*/
+        /***For Uplay **/
         if (message.equalsIgnoreCase("!uplay"))  {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -429,7 +434,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Buffalo wings **/  /*Paid*/
+        /***For Buffalo wings **/
         if (message.equalsIgnoreCase("!buffalo"))  {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -462,7 +467,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Hbo **/  /*Paid*/
+        /***For Hbo **/
         if (message.equalsIgnoreCase("!hbo"))  {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -495,7 +500,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Instant gaming **/  /*Paid*/
+        /***For Instant gaming **/
         if (message.equalsIgnoreCase("!instant"))  {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -528,7 +533,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Wish **/  /*Paid*/
+        /***For Wish **/
         if (message.equalsIgnoreCase("!wish")) {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -562,7 +567,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Steam **/  /*Paid*/
+        /***For Steam **/
         if (message.equalsIgnoreCase("!steam"))  {
             Scanner ss = null;
             if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -594,9 +599,43 @@ public class FileEvent extends ListenerAdapter {
                 event.getChannel().sendMessage(errorMsg.build()).queue();
             }
         }
+
+        /***For Twitter **/
+        if (message.equalsIgnoreCase("!twitter")) {
+            Scanner ss = null;
+            if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
+                try {
+                    ss = new Scanner(Twitter);
+                    String data_twitter = ss.nextLine().trim();
+
+                    twitter.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    twitter.setTitle("Try using this account here ", "https://twitter.com/login/");
+                    twitter.setThumbnail("http://cumberlandhotel.net.au/wp-content/uploads/2016/08/twitter.gif");
+                    twitter.setColor(0xDA1F2);
+                    twitter.addField("Twitter Account",data_twitter, true);
+                    twitter.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(twitter.build())).queue();
+
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(TWITTER_PATH);
+                } catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
 /************************************************````````````FREE````````````*********************************************/
 
-        /***For NordVpn **/  /*Free*/
+           /***For NordVpn **/ /*Free*/
         if (message.equalsIgnoreCase("!nord")) {
             Scanner sn = null;
             if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
@@ -629,7 +668,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Hulu **/  /*Free*/
+        /***For Hulu **/
         if (message.equalsIgnoreCase("!hulu")) {
             Scanner ss = null;
             if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")){
@@ -641,8 +680,8 @@ public class FileEvent extends ListenerAdapter {
                     //event.getChannel().sendMessage("here you go \n"+data).queue();
                     hulu.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
                     hulu.setTitle("Try using this account here ", "https://auth.hulu.com/web/login?next=http://secure.hulu.com/account");
-                    hulu.setThumbnail("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fe%2Fe4%2FHulu_Logo.svg%2F1200px-Hulu_Logo.svg.png&f=1&nofb=1");
-                    hulu.setColor(Color.GREEN);
+                    hulu.setThumbnail("https://images.squarespace-cdn.com/content/v1/52a11797e4b05f836261a40b/1496169348385-TIS8CKFNC0DD2W3A4F9Y/ke17ZwdGBToddI8pDm48kLxnK526YWAH1qleWz-y7AFZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVH-2yKxPTYak0SCdSGNKw8A2bnS_B4YtvNSBisDMT-TGt1lH3P2bFZvTItROhWrBJ0/hulu_gradient2.gif");
+                    hulu.setColor(0x3DBB3D);
                     hulu.addField("HULU Account",data_hulu, true);
                     hulu.setFooter(freeMsg,event.getGuild().getIconUrl());
                     event.getChannel().sendMessage(sent.build()).queue();
@@ -665,7 +704,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Origin **/ /*Free*/
+        /***For Origin **/
         if (message.equalsIgnoreCase("!origin")) {
             Scanner ss = null;
             if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")){
@@ -701,7 +740,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Razer **/  /*Free*/
+        /***For Razer **/
         if (message.equalsIgnoreCase("!razer")) {
             Scanner sn = null;
             if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
@@ -734,7 +773,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Zenmate **/  /*Free*/
+        /***For Zenmate **/
         if (message.equalsIgnoreCase("!zenmate")) {
             Scanner sn = null;
             if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
@@ -767,7 +806,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Tunnelbear **/  /*Free*/
+        /***For Tunnelbear **/
         if (message.equalsIgnoreCase("!tunnel")) {
             Scanner sn = null;
             if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
@@ -800,7 +839,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For viaplay **/  /*Free*/
+        /***For viaplay **/
         if (message.equalsIgnoreCase("!viaplay")) {
             Scanner sn = null;
             if(channel_id.equals("706204133316624404")||channel_id.equals("707311400292450415")) {
