@@ -148,7 +148,7 @@ public class FileEvent extends ListenerAdapter {
                 FileDelete.delete(MAIL_PATH);
             }  catch (NoSuchElementException | FileNotFoundException e) {
                 if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                   event.getChannel().sendMessage(sorry.build()).queue();}
                 else e.printStackTrace();
             }
 
@@ -158,7 +158,7 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For Crunchy Role **//*   *//*Paid*//*
+        /***For Crunchy Role **/
             if(message.equalsIgnoreCase("!crunchy")) {
                 Scanner sm = null;
                 if(channel_id.equals("706204225603895449")||channel_id.equals("707311400292450415")){
@@ -181,7 +181,7 @@ public class FileEvent extends ListenerAdapter {
                         FileDelete.delete(CR_PATH);
                     } catch (NoSuchElementException | FileNotFoundException e) {
                         if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                          else e.printStackTrace();
                         }
 
@@ -189,7 +189,7 @@ public class FileEvent extends ListenerAdapter {
                     event.getChannel().sendMessage(errorMsg.build()).queue();
                 }
             }
-*/
+
 
         /***For Adidas **/  /*Paid*/
         if (message.equalsIgnoreCase("!adidas")) {
@@ -217,7 +217,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(ADIDAS_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -253,7 +253,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(PSN_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -289,7 +289,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(IPVANISH_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -323,7 +323,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(MINECRAFT_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -357,7 +357,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(NAPSTER_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -391,7 +391,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(VYVR_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -424,7 +424,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(UPLAY_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -457,7 +457,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(BUFFALO_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -490,7 +490,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(HBO_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -523,7 +523,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(INSTANT_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -557,7 +557,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(WISH_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -590,7 +590,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(STEAM_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -624,7 +624,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(TWITTER_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -658,7 +658,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(NORD_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -694,7 +694,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(HULU_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -730,7 +730,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(ORIGIN_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -763,7 +763,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(RAZER_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -796,7 +796,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(ZENMATE_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -829,7 +829,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(TUNNELBEAR_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
@@ -862,7 +862,7 @@ public class FileEvent extends ListenerAdapter {
                     FileDelete.delete(VIAPLAY_PATH);
                 } catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
-                        event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(sorry.build())).queue();}
+                       event.getChannel().sendMessage(sorry.build()).queue();}
                     else e.printStackTrace();
                 }
 
