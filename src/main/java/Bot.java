@@ -14,12 +14,12 @@ public class Bot {
 
     //    public static String prefix="!";
     public static void main(String[] args) throws Exception {
-        JDA jda = new JDABuilder(AccountType.BOT).setToken("NjgxMDQ3NzU4MzAzNzg5MTM1.Xod0WA.w4bN7lBdgnhJZW0IF5cOXALZf7Q").build();
+        JDA jda = new JDABuilder(AccountType.BOT).setToken("NjgxMDQ3NzU4MzAzNzg5MTM1.XsjQZQ.6k_c2ALl_bPegTxjRIlsfAtug1w").build();
 
         /*Client Builder Initalize for Misc*/
         CommandClientBuilder clientBuilder = new CommandClientBuilder();
-        clientBuilder.setStatus(OnlineStatus.IDLE);
-        clientBuilder.setActivity(Activity.playing("Testing Testing"));
+        clientBuilder.setStatus(OnlineStatus.ONLINE);
+        clientBuilder.setActivity(Activity.watching("Lamentable Flame-The Rising"));
         clientBuilder.setShutdownAutomatically(true);
 
         /*Client Builder Builder Commands*/
