@@ -36,8 +36,8 @@ public class Bot {
         jda.addEventListener(client);
        jda.addEventListener(new FileEvent());
        jda.addEventListener(new HelpEvents());
-        //jda.addEventListener(new PingEvent());
-        jda.addEventListener(new WantTo());
+       jda.addEventListener(new PingEvent());
+        //jda.addEventListener(new WantTo());
       //  jda.addEventListener(new ReactEvent());
     }
 }

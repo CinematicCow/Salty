@@ -26,7 +26,7 @@ public class HelpGen extends Command {
         builder.addField("ViaPlay.se","!viaplay", true);
         builder.addField("Tunnel Bear Vpn","!tunnel", true);
         builder.addField("","---Premium Accounts---",  false);
-        builder.addField("IP-Vanish","!ipvanish", true);
+        builder.addField("Pandora","!pandora", true);
         builder.addField("Minecraft","!minecraft", true);
         builder.addField("Full Access Mail","!mail", true);
         builder.addField("PSN","!psn", true);

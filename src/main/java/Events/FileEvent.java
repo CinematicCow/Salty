@@ -27,7 +27,7 @@ public class FileEvent extends ListenerAdapter {
         EmbedBuilder hulu = new EmbedBuilder();
         EmbedBuilder psn = new EmbedBuilder();
         EmbedBuilder origin = new EmbedBuilder();
-        EmbedBuilder ipvansih = new EmbedBuilder();
+        EmbedBuilder pandora = new EmbedBuilder();
         EmbedBuilder minecraft = new EmbedBuilder();
         EmbedBuilder napster = new EmbedBuilder();
         EmbedBuilder razer=new EmbedBuilder();
@@ -55,7 +55,7 @@ public class FileEvent extends ListenerAdapter {
         String TWITTER_PATH=    "Accounts/Twitter.txt";
         String HULU_PATH=       "Accounts/Hulu.txt";
         String PSN_PATH=        "Accounts/Psn.txt";
-        String IPVANISH_PATH=   "Accounts/IPvanish.txt";
+        String PANDORA_PATH=   "Accounts/Pandora.txt";
         String MINECRAFT_PATH=  "Accounts/Minecraft.txt";
         String ORIGIN_PATH=     "Accounts/Origin.txt";
         String NAPSTER_PATH=     "Accounts/Napster.txt";
@@ -81,7 +81,7 @@ public class FileEvent extends ListenerAdapter {
         File Hulu = new File(HULU_PATH);
         File Psn = new File(PSN_PATH);
         File Origin = new File(ORIGIN_PATH);
-        File Ipvanish = new File(IPVANISH_PATH);
+        File Pandora = new File(PANDORA_PATH);
         File Minecraft=new File(MINECRAFT_PATH);
         File Napster=new File(NAPSTER_PATH);
         File Vyvr=new File(VYVR_PATH);
@@ -263,30 +263,30 @@ public class FileEvent extends ListenerAdapter {
             }
         }
 
-        /***For IP-Vanish **/
-        if (message.equalsIgnoreCase("!ipvanish")) {
+        /***For Pandora **/
+        if (message.equalsIgnoreCase("!pandora")) {
             Scanner ss = null;
             if(channel_id.equals("716275240044593152")||channel_id.equals("707311400292450415")){
                 try {
-                    ss = new Scanner(Ipvanish);
-                    String data_ipvanish = ss.nextLine().trim();
+                    ss = new Scanner(Pandora);
+                    String data_pandora = ss.nextLine().trim();
 
                     // if (!event.getAuthor().isBot()) {
                     //event.getChannel().sendMessage("here you go \n"+data).queue();
-                    ipvansih.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
-                    ipvansih.setTitle("Try using this account here ", "https://account.ipvanish.com/login");
-                    ipvansih.setThumbnail("https://account.ipvanish.com/assets/img/logo.png");
-                    ipvansih.setColor(0x85ff54);
-                    ipvansih.addField("IP Vanish Account",data_ipvanish, true);
-                    ipvansih.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    pandora.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    pandora.setTitle("Try using this account here ", "https://www.pandora.com/account/sign-in");
+                    pandora.setThumbnail("https://www.underconsideration.com/brandnew/archives/pnadora_2016_logo_variations.gif");
+                    pandora.setColor(0xbd34eb);
+                    pandora.addField("Pandora Radio Account",data_pandora, true);
+                    pandora.setFooter(paidMsg,event.getGuild().getIconUrl());
                     event.getChannel().sendMessage(sent.build()).queue();
-                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(ipvansih.build())).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(pandora.build())).queue();
 
 
                     //System.out.println(data);
                     ss.close();
                     // }
-                    FileDelete.delete(IPVANISH_PATH);
+                    FileDelete.delete(PANDORA_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
                        event.getChannel().sendMessage(sorry.build()).queue();}
@@ -638,7 +638,7 @@ public class FileEvent extends ListenerAdapter {
            /***For NordVpn **/ /*Free*/
         if (message.equalsIgnoreCase("!nord")) {
             Scanner sn = null;
-            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")) {
+            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")||channel_id.equals("716275240044593152")) {
 
                 try {
                     sn = new Scanner(Nord);
@@ -671,7 +671,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Hulu **/
         if (message.equalsIgnoreCase("!hulu")) {
             Scanner ss = null;
-            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")){
+            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")||channel_id.equals("716275240044593152")){
                 try {
                     ss = new Scanner(Hulu);
                     String data_hulu = ss.nextLine().trim();
@@ -707,7 +707,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Origin **/
         if (message.equalsIgnoreCase("!origin")) {
             Scanner ss = null;
-            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")){
+            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")||channel_id.equals("716275240044593152")){
                 try {
                     ss = new Scanner(Origin);
                     String data_origin = ss.nextLine().trim();
@@ -743,7 +743,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Razer **/
         if (message.equalsIgnoreCase("!razer")) {
             Scanner sn = null;
-            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")) {
+            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")||channel_id.equals("716275240044593152")) {
 
                 try {
                     sn = new Scanner(Razer);
@@ -776,7 +776,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Zenmate **/
         if (message.equalsIgnoreCase("!zenmate")) {
             Scanner sn = null;
-            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")) {
+            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")||channel_id.equals("716275240044593152")) {
 
                 try {
                     sn = new Scanner(Zenmate);
@@ -809,7 +809,7 @@ public class FileEvent extends ListenerAdapter {
         /***For Tunnelbear **/
         if (message.equalsIgnoreCase("!tunnel")) {
             Scanner sn = null;
-            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")) {
+            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")||channel_id.equals("716275240044593152")) {
 
                 try {
                     sn = new Scanner(Tunnelbear);
@@ -842,7 +842,7 @@ public class FileEvent extends ListenerAdapter {
         /***For viaplay **/
         if (message.equalsIgnoreCase("!viaplay")) {
             Scanner sn = null;
-            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")) {
+            if(channel_id.equals("716275306956193839")||channel_id.equals("707311400292450415")||channel_id.equals("716275240044593152")) {
 
                 try {
                     sn = new Scanner(Viaplay);

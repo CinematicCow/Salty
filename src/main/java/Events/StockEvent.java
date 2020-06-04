@@ -18,7 +18,7 @@ public class StockEvent extends Command {
 
     public StockEvent() {
         this.name = "stonks";
-        this.aliases = new String[]{"Stock,STOCK"};
+        this.aliases=new String[]{"s","stock","inv"};
         this.help = "returns the stock left ";
       //  this.requiredRole = "OWNER";
         this.guildOnly=true;
@@ -28,7 +28,7 @@ public class StockEvent extends Command {
     public void execute(CommandEvent event) {
 
         /*String Arrays || Datatables*/
-            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Razer", "Zenmate","Tunnel-Bear","Viaplay.se","Full Access Mail", "Crunchy Role", "Psn",  "Ip-vanish", "Minecraft","Uplay","Vyvr-Vpn", "Napster","Buffalo Wings","Instant Gaming","HBO","Wish","Steam","Adidas","Twitter"};
+            String[] name = {"Nord-Vpn", "Hulu", "Origin", "Razer", "Zenmate","Tunnel-Bear","Viaplay.se","Full Access Mail", "Crunchy Role", "Psn",  "Pandora", "Minecraft","Uplay","Vyvr-Vpn", "Napster","Buffalo Wings","Instant Gaming","HBO","Wish","Steam","Adidas","Twitter"};
             String[] path = {
                              "Accounts/Nord.txt",
                              "Accounts/Hulu.txt",
@@ -40,7 +40,7 @@ public class StockEvent extends Command {
                              "Accounts/FullAccess.txt",
                              "Accounts/CrunchyRole.txt",
                              "Accounts/Psn.txt",
-                             "Accounts/IPvanish.txt",
+                             "Accounts/Pandora.txt",
                              "Accounts/Minecraft.txt",
                              "Accounts/Uplay.txt",
                              "Accounts/Vyvr-Vpn.txt",
