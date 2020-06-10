@@ -44,6 +44,7 @@ public class HelpGen extends Command {
         builder.addField("Steam","!steam", true);
         builder.addField("Spotify","!spotify", true);
         builder.addField("Fitbit","!fitbit", true);
+        builder.addField("Call Of Duty","!cod", true);
         builder.setFooter("You can only generate accounts in their respective channels, or you will get an error, i.e to generate free accounts, you go to the free-generator and visa versa.");
         event.getChannel().sendMessage("It's simple to generate accounts. All you gotta do is go to the **Stocks Channel** and see the available accounts. \nThen go to the respective generator.").queue();
         event.getChannel().sendMessage(builder.build()).queue();

@@ -38,6 +38,7 @@ public class FileEvent extends ListenerAdapter {
         EmbedBuilder steam=new EmbedBuilder();
         EmbedBuilder spotify=new EmbedBuilder();
         EmbedBuilder fitbit=new EmbedBuilder();
+        EmbedBuilder cod=new EmbedBuilder();
 
         EmbedBuilder errorMsg= new EmbedBuilder();
         EmbedBuilder sent= new EmbedBuilder();
@@ -62,6 +63,7 @@ public class FileEvent extends ListenerAdapter {
         String STEAM_PATH=    "Accounts/Steam.txt";
         String SPOTIFY_PATH=    "Accounts/Spotify.txt";
         String FITBIT_PATH=    "Accounts/Fitbit.txt";
+        String COD_PATH=    "Accounts/Cod.txt";
 
 
 
@@ -86,6 +88,7 @@ public class FileEvent extends ListenerAdapter {
         File Steam=new File(STEAM_PATH);
         File Spotify=new File(SPOTIFY_PATH);
         File Fitbit=new File(FITBIT_PATH);
+        File Cod=new File(COD_PATH);
 
 
         /*This gets the message inputed on your channel to a variable*/
@@ -543,6 +546,40 @@ public class FileEvent extends ListenerAdapter {
                     ss.close();
                     // }
                     FileDelete.delete(FITBIT_PATH);
+                }  catch (NoSuchElementException | FileNotFoundException e) {
+                    if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
+                        event.getChannel().sendMessage(sorry.build()).queue();}
+                    else e.printStackTrace();
+                }
+
+            }
+            else{
+                event.getChannel().sendMessage(errorMsg.build()).queue();
+            }
+        }
+
+        /***For COD**/
+        if (message.equalsIgnoreCase("!cod")) {
+            Scanner ss = null;
+            if(channel_id.equals("716275240044593152")||channel_id.equals("707311400292450415")){
+                try {
+                    ss = new Scanner(Cod);
+                    String data_cod = ss.nextLine().trim();
+
+                    cod.setAuthor(event.getGuild().getName(),"https://discord.gg/JyBPnnq");
+                    cod.setTitle("Try using this account here ", "https://profile.callofduty.com/cod/signup");
+                    cod.setThumbnail("https://3.bp.blogspot.com/-HL4M-GaJaG4/URj1YR4EcBI/AAAAAAAAIvA/0anolk5jx0c/s1600/lapd.gif");
+                    cod.setColor(Color.BLACK);
+                    cod.addField("Call Of Duty Account",data_cod, true);
+                    cod.setFooter(paidMsg,event.getGuild().getIconUrl());
+                    event.getChannel().sendMessage(sent.build()).queue();
+                    event.getAuthor().openPrivateChannel().flatMap(privateChannel -> privateChannel.sendMessage(cod.build())).queue();
+
+
+                    //System.out.println(data);
+                    ss.close();
+                    // }
+                    FileDelete.delete(COD_PATH);
                 }  catch (NoSuchElementException | FileNotFoundException e) {
                     if(e.toString().startsWith("java.util.NoSuchElementException: No line found")){
                         event.getChannel().sendMessage(sorry.build()).queue();}
