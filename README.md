@@ -1,4 +1,4 @@
-![logo](https://photos.app.goo.gl/1kRT93AhwC9wn7M68)
+![logo](https://ibb.co/9wy35ts)
 
 # Salty
 ## A bot for Discord
