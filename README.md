@@ -1,3 +1,5 @@
+![logo](https://photos.app.goo.gl/1kRT93AhwC9wn7M68)
+
 # Salty
 ## A bot for Discord
 Salty is a bot for discord made via **Java Discord Api** and it has a lot of great functionalities. The prefix is `!` for executing any command to Salty.
