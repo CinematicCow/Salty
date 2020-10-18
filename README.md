@@ -1,4 +1,4 @@
-![logo](https://ibb.co/9wy35ts)
+![logo](https://i.ibb.co/RhQ4wyz/Salty-The-GEN-Bot-for-discord-banner.png)
 
 # Salty
 ## A bot for Discord
